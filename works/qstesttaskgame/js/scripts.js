@@ -59,7 +59,7 @@ function game() {
   }
 
   boxes = [];
-  let time = getRandom(300, 500);
+  let time = getRandom(250, 350);
 
   function fillByBoxes() {
     boxes.push(new BoxRender());
