@@ -1,0 +1,40 @@
+body {
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.ball {
+  display: block;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 100px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 255, .5);
+  background: radial-gradient(circle at 60% 30%, rgba(99,92,232,.5) 8%, rgba(9,9,121,1) 67%);
+  box-shadow: 3px 6px 10px 2px rgba(0,0,0,0.75);
+}
+
+.parallelogram {
+  display: block;
+  width: 200px;
+  height: 150px;
+  margin-bottom: 100px;
+  transform: skewX(-25deg);
+  background: linear-gradient(to top right, #f00,  #ff9999, #fff);
+}
+
+.trapezoid {
+  display: block;
+  /* width: 125px; */
+  height: 0;
+  border-bottom: 160px solid;
+  border-image: linear-gradient(to top right, #f00, #fff);
+  border-left: 0 solid transparent;
+  border-right: 110px solid transparent;
+
+}

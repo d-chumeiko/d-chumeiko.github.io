@@ -1,0 +1,28 @@
+*{
+  margin: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0;
+  align-items: center;
+  background-color: #00000042;
+  color: #353535;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.role-text-wrapper {
+  width: 80%;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px 0px #000000b5;
+  background-color: #fff;
+}
+
+.role {
+  font-size: 20px;
+  font-weight: bold;
+}

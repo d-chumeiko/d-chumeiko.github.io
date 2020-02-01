@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+
+		body {
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+
+		main {
+			display: flex;
+			flex-wrap: wrap;
+			width: 400px;
+		}
+
+ 		.item {
+ 			width: 100px;
+ 			height: 100px;
+ 			margin-right: -1px;
+ 			margin-bottom: -1px;
+ 			border: 1px solid black;
+ 			box-sizing: border-box;
+ 		}
+ 		
+		.item:nth-child(3n+4) {
+			background-color: blue
+ 		}
+
+ 		.item:nth-child(5n+1) {
+			background-color: red
+ 		}
+ 		
+  </style>
+</head>
+
+<body>
+  <main>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+    <div class="item"></div>
+  </main>
+</body>
+
+</html>

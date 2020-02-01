@@ -1,0 +1,155 @@
+body, h1, h2, p, div {
+  margin: 0
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+body {
+  background-color: #fff;
+  height: 100vh;
+  display: -webkit-flex;
+  display: -ms-flex;
+  display: flex;
+  justify-content: center;
+  align-items:  center;
+  font-family: sans-serif;
+}
+
+.gallery {
+  position: relative;
+  z-index: 1;
+  width: 775px;
+  height: 515px;
+  display: flex;
+  padding: 0;
+}
+
+.item:hover .item_addition {
+  opacity: 1;
+}
+
+.item_img {
+  width: 100%;
+  height: 100%;
+  background-size: contain;
+}
+
+.item_addition {
+  width: 100%;
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  transition: all .3s ease;
+}
+
+.item_addition-hidden {
+  opacity: 0;
+}
+
+.controls {
+  width: 20px;
+  height: 515px;
+  display: inline-block;
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  color: #fff;
+  font-size: 23px;
+}
+
+.prev, .next {
+  width: 15px;
+  height: 35px;
+  position: absolute;
+  z-index: 5;
+  text-align: center;
+}
+
+.next {
+  bottom: 32px;
+  background: center 14px / 30px url('../img/svg/down.svg')  no-repeat;
+}
+
+.prev {
+  top: 0;
+  background: center -10px / 30px url('../img/svg/up.svg')  no-repeat;
+  line-height: 48px;
+}
+
+
+.info {
+  height: 0;
+  width: 250px;
+  position: absolute;
+  right: 0;
+  display: inline-block;
+  border-bottom: 515px solid rgba(221, 228, 238, 0.8);
+  border-left: 100px solid transparent;
+  border-right: 0 solid transparent;
+}
+
+.read-more {
+  position: absolute;
+  top: 13px;
+  right: 60px;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.heading {
+  width: 280px;
+  position: absolute;
+  top: 267px;
+  right: 4px;
+  font-size: 30px;
+}
+
+.page {
+  position: absolute;
+  top: 327px;
+  right: 151px;
+  font-size: 47px;
+  font-weight: 900;
+}
+
+.views {
+  position: absolute;
+  top: 486px;
+  right: 35px;
+  background: 0 0 / 20px url('../img/svg/view.svg')  no-repeat;
+}
+
+.views span {
+  margin-left: 30px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */

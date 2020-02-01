@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    section {
+      display: inline-block;
+      border: 1px solid grey;
+      padding: 10px;
+      margin-right: 50px;
+    }
+
+    .first .item {
+      width: 30px;
+      height: 30px;
+      margin-bottom: 10px;
+      border: 1px solid black;
+    }
+
+    .first .item1 {
+      border-color: red;
+    }
+
+    .first .item2 {
+      margin-left: 40px;
+      border-color: blue;
+    }
+
+    .first .item3 {
+      margin-left: 80px;
+      border-color: green;
+      margin-bottom: 0;
+    }
+
+    .second .main, .third .main {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background-color: green;
+      padding: 10px;
+    }
+
+    .second .main .item {
+      width: 40px;
+      height: 40px;
+      background-color: #fff;
+      position: absolute;
+    }
+
+    .second .main .item:first-child {
+      top: 0px;
+      left: 0px;
+      margin-top: 10px;
+      margin-left: 10px;
+    }
+
+    .second .main .item:last-child {
+      bottom: 0px;
+      right: 0px;
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
+
+    .third .main {
+      border-radius: 50%;
+    }
+
+    .third .main .eye {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      position: absolute;
+      top: 40px;
+      background-color: #fff;
+      right: 20%;
+    }
+
+    .third .main .eye:first-child {
+      left: 20%;
+    }
+
+    .third .main .nose {
+      position: absolute;
+      width: 40px;
+      height: 40px;
+      top: 45%;
+      left: 40%;
+      background-color: #fff;
+    }
+
+    .third .main .mouth {
+      position: absolute;
+      width: 80px;
+      height: 20px;
+      top: 75%;
+      left: 30%;
+      background-color: #fff;
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+  <section class="first">
+    <div class="item1 item"></div>
+    <div class="item2 item"></div>
+    <div class="item3 item"></div>
+  </section>
+
+  <section class="second">
+    <div class="main">
+    <div class="item"></div>
+    <div class="item"></div>
+    </div>
+  </section>
+
+  <section class="third">
+    <div class="main">
+    <div class="item eye"></div>
+    <div class="item eye"></div>
+    <div class="item nose"></div>
+    <div class="item mouth"></div>
+    </div>
+  </section>
+
+</body>
+</html>
