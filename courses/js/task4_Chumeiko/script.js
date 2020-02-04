@@ -5,18 +5,17 @@ let canvas = document.getElementById("drawingCanvas");
 let ctx = canvas.getContext("2d");
 
 let balls = [];
-let maxBalls = false;
 
 let colors = ['#FF0D00', '#FF7A73', '#FF8700', '#FFBD73', '#FFE900', '#FFEB73', '#9FEE00', '#2F8F00', '#009999', '#2A17B1', '#540EAD',
               '#9A6AD6', '#CD0074', '#E667AF', '#A61A00', '#63DD8D', '#000', '#804000', '#a6a6a6', '#77773c', '#ac3939', '#CB356B',
               '#BD3F32', '#3A1C71', '#D76D77', '#283c86', '#45a247', '#8e44ad', '#155799', '#159957', '#000046', '#1CB5E0', '#2F80ED'];
 
+startDrawing = setTimeout(draw, 20);
 
 btnStart.addEventListener('click', start);
 btnStop.addEventListener('click', stop);
 
 function start() {
-  setTimeout(draw, 20);
   addBall();
   startBouncing = setInterval(addBall, 5000);
   canvas.style.backgroundColor = '#fff';
@@ -59,6 +58,10 @@ function addBall() {
   if (balls.length < 20) balls.push(ball);
 }
 
+function clearBalls() {
+  balls = [];
+}
+
 function draw() {
 
   clearCanvas();
@@ -70,10 +73,10 @@ function draw() {
     ball.y += ball.dy;
 
     ball.dy += 0.15;
-    ball.dx *=  0.99;
+    ball.dx *=  0.996;
 
     if ((ball.x + ball.dx > canvas.width - ball.radius) || (ball.x + ball.dx < ball.radius)) {
-        ball.dx = -ball.dx*0.9;
+        ball.dx = -ball.dx;
     }
 
     if ((ball.y + ball.dy > canvas.height - ball.radius + 1) || (ball.y + ball.dy < ball.radius)) { 
