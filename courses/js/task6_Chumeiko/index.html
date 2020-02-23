@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Магазин</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Simonetta&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+
+    <div class="header-line">
+      <div class="header-logo">
+        <a href="./index.html" class="logo">
+          <img class="logo_img" src="./img/logo.png" alt="logo">
+          <span class="logo_name">Bella Grace</span>
+        </a>
+      </div>
+
+      <div class="header_cart">
+        <a href="./cart.html" class="cart_icon">
+          <img class="cart_img" src="./img/cart.png" alt="cart">
+          <span class="cart_count"></span>
+        </a>
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+    
+    <div class="add-goods">
+      <a href="#" class="add-goods_btn">Добавить товар</a>
+      <div class="add-goods-popup">
+        <div id="popup" class="popup">
+          <button id="close-popup" class="close-popup" type="button" name="button">x</button>
+          <form id="formAddFlower" name="formAddFlower" action="/" method="get">
+            <label>Add picture</label>
+            <input type="file" name="file" required> </br></br>
+            <label>Add name</label>
+            <input type="text" name="name" value=""> </br></br>
+            <label>Add description</label>
+            <input type="text" name="description"> </br></br>
+            <label>Add default color by photo (green, red, biege)</label>
+            <input type="text" name="defcolor"> </br></br>
+            <label>Add price</label>
+            <input type="number" name="price"> </br></br>
+            <input type="submit" value="Add flower">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="sort-filter">
+      <a href="#" class="sort-asc-goods_btn">Сортировать по возрастанию</a>
+      <a href="#" class="sort-desc-goods_btn">Сортировать по убыванию</a>
+      <a href="#" class="filter-by-available-goods_btn">Фильтровать по наличию</a>
+    </div>
+
+
+    <div class="goods" id="goods"></div>
+
+    <div class="pagination-wrapper">
+      <ul id="pagination" class="pagination"></ul>  
+    </div>
+
+
+  </main>
+
+  <footer>
+    <div class="footer-line">
+      
+    </div>
+  </footer>
+
+  <script src="./data/data.js"></script>
+  <script src="./js/common.js"></script>
+  <script src="./js/goods.js"></script>
+</body>
+
+</html>

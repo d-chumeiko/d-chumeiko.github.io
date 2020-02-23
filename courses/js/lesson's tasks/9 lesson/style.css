@@ -1,0 +1,5 @@
+body, .tasks, .form-for-tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
