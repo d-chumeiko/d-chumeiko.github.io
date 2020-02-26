@@ -1,44 +1,231 @@
+/* Fonts */
+
 @font-face {
-  font-family: "OpenSansBold"; 
-  src: url("../fonts/OpenSans/OpenSans-Bold.ttf"); 
+  font-family: "OpenSansBold";
+  src: url("../fonts/OpenSans/OpenSans-Bold.ttf");
 }
 
 @font-face {
-  font-family: "OpenSansSemiBold"; 
-  src: url("../fonts/OpenSans/OpenSans-SemiBold.ttf"); 
+  font-family: "OpenSansSemiBold";
+  src: url("../fonts/OpenSans/OpenSans-SemiBold.ttf");
 }
 
 @font-face {
-  font-family: "RobotoBold"; 
-  src: url("../fonts/Roboto/Roboto-Bold.ttf"); 
+  font-family: "RobotoBold";
+  src: url("../fonts/Roboto/Roboto-Bold.ttf");
 }
 
 @font-face {
-  font-family: "RobotoMedium"; 
-  src: url("../fonts/Roboto/Roboto-Medium.ttf"); 
+  font-family: "RobotoMedium";
+  src: url("../fonts/Roboto/Roboto-Medium.ttf");
 }
 
 @font-face {
-  font-family: "RobotoRegular"; 
-  src: url("../fonts/Roboto/Roboto-Regular.ttf"); 
+  font-family: "RobotoRegular";
+  src: url("../fonts/Roboto/Roboto-Regular.ttf");
 }
 
-.o1 {
+/* ------- Common ------- */
+
+/* html tags custom */
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+input,
+button {
+  outline: none;
+}
+
+/* Wrappers */
+
+.wrapper {
+  max-width: 1180px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 30px;
+}
+
+.wide-wrapper {
+  max-width: 1300px;
+  width: 100%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+/* gradient separator */
+
+.gradient-separator {
+  width: 110%;
+  position: relative;
+}
+
+.gradient-separator::after, .gradient-separator::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 50%;
+  height: 1px;
+  right: 5%;
+  background-image: linear-gradient(to right, rgb(229, 229, 229), rgb(229, 229, 229), rgb(229, 229, 229), rgb(229, 229, 229), rgb(229, 229, 229), rgb(229, 229, 229), rgb(229, 229, 229), rgb(229, 229, 229), rgb(229, 229, 229), rgb(229, 229, 229), rgb(240, 240, 240), rgb(255, 255, 255));
+}
+
+.gradient-separator::before {
+  left: -5%;
+  transform: scale(-1, 1);
+}
+
+/* Header */
+.top-line {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #000;
+}
+
+.link-to-start {
   font-family: 'OpenSansBold';
+  font-size: 30px;
+  text-decoration: none;
 }
 
-.o2 {
-  font-family: 'OpenSansSemiBold';
-}
-
-.r1 {
-  font-family: 'RobotoBold';
-}
-
-.r2 {
-  font-family: 'RobotoMedium';
-}
-
-.r3 {
+.top-line_rigth {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-family: 'RobotoRegular';
+  font-size: 14px;
+}
+
+.link-to-singup {
+  margin-right: 80px;
+}
+
+.link-to-bag {
+  position: relative;
+}
+
+.link-to-bag span::before {
+  content: url('./../img/icons/icon-bag.png');
+  position: absolute;
+  right: 60px;
+}
+
+.bottom-line {
+  position: relative;
+  margin-top: 25px;
+  padding-bottom: 15px;
+}
+
+.navbar {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  font-family: 'OpenSansBold';
+  color: #000;
+}
+
+.navbar_menu {
+  display: flex;
+  margin-right: 70px;
+}
+
+.navbar_link--toggle {
+  position: absolute;
+  right: 0;
+  display: none;
+}
+
+.navbar_link {
+  margin-right: 50px;
+  font-size: 14px;
+}
+
+.navbar_link:last-child {
+  margin-right: 0;
+}
+
+.navbar_search {
+  position: relative;
+  float: right;
+}
+
+.navbar_text-to-search {
+  width: 120px;
+  padding-bottom: 8px;
+  border: none;
+  border-bottom: 2px solid #e5e5e5;
+  font-family: 'OpenSansBold';
+  font-size: 13px;
+  line-height: 13px;
+  color: #a8a8a8;
+}
+
+.navbar_text-to-search::placeholder {
+  font-family: 'OpenSansBold';
+  color: #a8a8a8;
+}
+
+.navbar_button-search {
+  position: absolute;
+  right: -5px;
+  top: 2px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Header End*/
+
+.try {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+}
+
+
+/* ------- Common End ------- */
+
+/* Start */
+
+
+
+
+
+
+
+/* Media */
+
+@media only screen and (max-width: 768px) {
+  .wrapper {
+    max-width: 768px;
+  }
+
+  .navbar,
+  .navbar_menu {
+    flex-direction: column;
+  }
+
+  .navbar_menu, .navbar_search {
+    display: none;
+  }
+
+  .navbar_link--toggle-show {
+    display: flex;
+  }
+
+  .navbar_link--toggle {
+    display: block;
+  }
 }
