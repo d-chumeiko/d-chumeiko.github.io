@@ -36,6 +36,14 @@ body {
   width: 100%;;
 }
 
+h2, h3, h4 {
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -53,14 +61,17 @@ button {
   width: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   padding-top: 30px;
 }
 
 .wide-wrapper {
   max-width: 1300px;
   width: 100%;
+  display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: flex-start;
 }
 
 /* gradient separator */
@@ -73,6 +84,7 @@ button {
 .gradient-separator::after, .gradient-separator::before {
   content: "";
   position: absolute;
+  z-index: 999;
   bottom: 0;
   width: 50%;
   height: 1px;
@@ -86,6 +98,13 @@ button {
 }
 
 /* Header */
+
+header {
+  position: relative;
+  z-index: 10;
+  background-color: #fff;
+}
+
 .top-line {
   width: 100%;
   display: flex;
@@ -189,18 +208,110 @@ button {
 
 /* Header End*/
 
-.try {
-  font-family: 'Times New Roman', Times, serif;
-  font-style: italic;
-}
 
 
 /* ------- Common End ------- */
 
-/* Start */
+/* Main */
 
+/* Banners */
 
+.banner .gradient-separator::before {
+  left: 1%;
+}
 
+.banner .gradient-separator::after {
+  right: 8%;
+}
+
+.banner_left .banner_link, .banner_right .banner_link {
+  position: relative;
+  display: flex;
+  max-width: 650px;
+  width: 600px;
+  height: 385px;
+  overflow: hidden;
+  border-right: 1px solid rgb(229, 229, 229);
+  background-color: #fff;
+}
+
+.banner_right .banner_link {
+  background: #f7f7f7;
+  border: none;
+}
+
+.banner_text {
+  position: absolute;
+  z-index: 2;
+  right: 75px;
+  top: 40px;
+  text-align: center;
+}
+
+.banner_heading {
+  font-size: 23px;
+  font-family: 'OpenSansBold'
+}
+
+.banner-descr, .best-offer_descr {
+  margin-top: 10px;
+  font-size: 15px;
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  color: #757575;
+}
+
+.banner_img {
+  position: absolute;
+  z-index: 1;
+}
+
+.banner_left a .banner_img {
+  width: 80%;
+  left: 17%;
+  top: 10%;
+}
+
+.banner_right a .banner_img {
+  width: 60%;
+  left: 5%;
+  top: -13%;
+}
+
+/* Best offer */
+
+.best-offer {
+  margin-top: 60px;
+}
+
+.best-offer_left {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.best-offer_text {
+  margin-bottom: 70px;
+  text-align: center;
+}
+
+.best-offer_heading {
+  font-family: 'OpenSansBold';
+  font-size: 35px;
+}
+
+.selection-arrows_top, .selection-arrows_bottom {
+  display: inline-block;
+  width: 24px;
+  height: 12px;
+  background-image: url('./../img/icons/arrow.png');
+  background-size: 100% 100%;
+  
+}
+
+.selection-arrows_top {
+  transform: scaleY(-1);
+}
 
 
 
