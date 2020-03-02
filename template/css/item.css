@@ -1,0 +1,25 @@
+.item_editing {
+  max-width: 1180px;
+  width: 100%;
+}
+
+.back-to-catalog {
+  font-family: 'OpenSansBold';
+  margin: 20px 0 20px 20px;
+  font-size: 16px;
+  text-align: left;
+}
+
+.options {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  margin-top: 60px;
+  margin-bottom: 100px;
+}
+
+.options_img {
+  margin-right: 50px;
+}
+

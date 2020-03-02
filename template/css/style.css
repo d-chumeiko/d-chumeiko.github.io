@@ -526,26 +526,75 @@ footer {
   margin: 0;
 }
 
+/* Banners */
+
+.catalog_banners, .item_banners {
+  max-height: 380px;
+  height: 100%;
+}
+
+.banners_left-banner, .banners_middle-banner, .banners_right-banner {
+  max-width: 650px;
+  max-height: 380px;
+  width: 100vw;
+  height: 100vh;
+  background: url(./../img/adidas-blue.png) no-repeat;
+  background-size: cover;
+}
+  
+.banners_middle-banner, .banners_right-banner {
+  max-width: 325px;
+  background: url(./../img/repair-patches.png) no-repeat;
+}
+
+.banners_right-banner {
+  background: url(./../img/sale.png) no-repeat;
+}
+
+.banners-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.banners-link_text {
+  position: relative;
+  color: #fff;
+  top: 70%;
+}
+
+.banners_left-banner .banners-link_text {
+  top: 15%;
+  left: 25%;
+}
+
+.banners-link_text h4 {
+  margin-bottom: 18px;
+  font-family: 'OpenSansBold';
+  font-size: 28px;
+}
+
+.banners_right-banner h4 {
+  color: #f14a58;
+}
+
+.banners-link p {
+  font-family: 'Times New Roman', Times, serif;
+  font-style: italic;
+  font-size: 16px;
+}
+
+.banners_middle-banner p {
+  font-family: 'RobotoRegular';
+  font-style: normal;
+}
+
+.banners_right-banner p {
+  color: #757575;
+}
+
 
 /* ------- Common End ------- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* ------------ Media ------------ */
@@ -715,6 +764,39 @@ footer {
 
   .share-footer {
     font-size: 16px;
+  }
+
+  /* Banners */
+  .catalog_banners, .item_banners {
+    max-height: 250px;
+    border-bottom: 1px solid rgb(229, 229, 229);
+  }
+
+  .banners_left-banner {
+    max-width: 62%;
+    background-size: contain;
+  }
+
+  .banners_left-banner .banners-link_text {
+    top: 12%;
+    left: 25%;
+  }
+
+  .banners_middle-banner {
+    max-width: 38%;
+    background-size: cover;
+  }
+
+  .banners_middle-banner .banners-link_text {
+    top: 40%;
+  }
+
+  .banners_right-banner {
+    display: none;
+  }
+
+  .banners-link_text h4 {
+    font-size: 22px;
   }
 
   /* ------- End Common ------- */
@@ -950,6 +1032,34 @@ footer {
   .site-info-footer {
     display: none;
     
+  }
+
+  /* Banners */
+  .catalog_banners, .item_banners {
+    max-height: 235px;
+  }
+
+  .banners_left-banner {
+    max-width: 100%;
+    background-size: cover;
+  }
+
+  .banners_left-banner .banners-link_text {
+    top: 8%;
+    left: 22%;
+  }
+
+  .banners_middle-banner {
+    display: none;
+  }
+
+  .banners-link_text h4 {
+    margin-bottom: 12px;
+    font-size: 20px;
+  }
+  
+  .banners-link p {
+    font-size: 14px;
   }
 
    /* ------- Common End ------- */

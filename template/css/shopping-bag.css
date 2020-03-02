@@ -81,6 +81,7 @@
 
 .param_color, .param_size, .param_quantity {
   margin-bottom: 15px;
+  text-align: left;
   font-family: 'RobotoRegular';
   font-size: 12px;
 }
@@ -197,6 +198,11 @@
 
 @media only screen and (max-width: 1024px) {
 
+  .shopping-bag {
+    border-top: 1px solid rgb(229, 229, 229);
+    border-bottom: 1px solid rgb(229, 229, 229);
+  }
+
   .shopping-bag_heading {
     font-size: 20px;
   }
@@ -238,6 +244,7 @@
 
   .shopping-bag_free-delivery {
     left: -6%;
+    border-top: 1px solid rgb(229, 229, 229);
     font-size: 11px;
   }
 
@@ -333,4 +340,19 @@
     font-size: 12px;
   }
 
+}
+
+@media only screen and (max-width: 767px) and (min-width: 530px) {
+  
+  .shb-item {
+    max-width: 50%;
+  }
+  
+  .shb-item_img {
+    max-width: 140px;
+  }
+
+  .shb-item_info {
+    margin-left: 10px;
+  }
 }
