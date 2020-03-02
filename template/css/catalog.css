@@ -455,7 +455,7 @@ header {
 
   .banners_middle-banner {
     max-width: 38%;
-    background-size: contain;
+    background-size: cover;
   }
 
   .banners_middle-banner .banners-link_text {
@@ -542,7 +542,7 @@ header {
 
   .banners_left-banner {
     max-width: 100%;
-    background-size: contain;
+    background-size: cover;
   }
 
   .banners_left-banner .banners-link_text {
