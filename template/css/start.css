@@ -4,6 +4,7 @@
 .banner {
   max-width: 1300px;
   width: 100%;
+  overflow-y: hidden;
 }
 
 .banner_left,
@@ -234,7 +235,7 @@
   /* Banner */
 
   .banner {
-    width: 100vw;
+    width: 99vw;
   }
 
   /* Best Offer */
@@ -397,6 +398,10 @@
   .banner_right {
     display: none;
     width: 0;
+  }
+
+  .banner_left .banner_link {
+    border: none;
   }
 
   /* Best offer */
