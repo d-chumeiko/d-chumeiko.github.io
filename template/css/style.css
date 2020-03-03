@@ -628,6 +628,10 @@ footer {
     width: 300px;
   }
 
+  .navbar_link {
+    margin-right: 45px;
+  }
+
   /* Footer */
 
   .left_block-of-links {
