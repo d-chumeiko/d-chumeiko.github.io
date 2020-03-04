@@ -139,7 +139,7 @@ window.catalog = [
 
   // 28.08
   {
-    id: '8c061815-6a7d-4467-bb78-1bdc6c5adebf',
+    id: '8c061815-6a7d-4465-bb78-1bdc6c5adebf',
     dateAdded: '2017-08-28T09:15:36.000Z',
     title: 'Only Skinny Jeans',
     description: 'Saepe quisquam tempore praesentium vitae soluta, exercitationem quae, corrupti iusto consequatur deleniti facere!',
