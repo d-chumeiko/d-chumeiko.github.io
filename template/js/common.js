@@ -1,7 +1,7 @@
 let gamburger = document.querySelector('.navbar_link--toggle');
 let navbarButtonSearch = document.querySelector('.navbar_button-search');
 let productsList = document.querySelector('.products_list');
-let productsItems = productsList.children;
+
 
 gamburger.addEventListener('click', gamburgerToggle);
 // navbarButtonSearch.addEventListener('click', searchMenuToggle);

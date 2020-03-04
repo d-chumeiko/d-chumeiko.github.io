@@ -2,10 +2,14 @@
 
 showProductsInCatalog();
 
+var productsItems = productsList.children;
+
 for (var i = 0, len = productsItems.length; i < len; i++) {
   var key = productsItems[i];
   key.addEventListener('click', addItemToTL);
 }
+
+document.querySelector('.banner_link').addEventListener('click', addItemToTL);
 
 function showProductsInCatalog() {
   productsList.innerHTML = createProductItems(lsCatalog);

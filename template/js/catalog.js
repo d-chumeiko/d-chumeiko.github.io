@@ -3,6 +3,7 @@ let mobileFilter = document.getElementsByClassName("filter-list--hidden")[0];
 
 showProductsInCatalog();
 
+let productsItems = productsList.children;
 
 for (let i = 0, len = productsItems.length; i < len; i++) {
   let key = productsItems[i];

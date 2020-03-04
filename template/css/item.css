@@ -31,10 +31,12 @@
 .full-img {
   max-width: 590px;
   max-height: 390px;
+  overflow: hidden;
+  background-color: #f7f7f7;
 }
 
 .full-img_item, .thumbs-img_item {
-  width: 100%;
+  width: 50%;
   height: 100%;
 }
 
@@ -49,6 +51,13 @@
 .thumbs-img_item {
   max-width: 195px;
   max-height: 130px;
+  overflow: hidden;
+  background-color: #f7f7f7;
+}
+
+.thumbs-img_item img {
+  width: 70%;
+  height: 100%;
 }
 
 .thumbs-img_item--active {
@@ -101,6 +110,7 @@
   flex-direction: row;
   align-items: center;
   flex-wrap: nowrap;
+  margin-bottom: 10px;
   font-family: 'RobotoRegular';
   font-size: 12px;
   order: 4;
@@ -146,6 +156,10 @@
 
   .thumbs-img_item {
     max-width: 197px;
+  }
+
+  .thumbs-img_item {
+    cursor: pointer;
   }
 
   .option_sizes {

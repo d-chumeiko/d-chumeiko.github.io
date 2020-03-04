@@ -7,6 +7,8 @@ var mobileFilter = document.getElementsByClassName("filter-list--hidden")[0];
 
 showProductsInCatalog();
 
+var productsItems = productsList.children;
+
 for (var i = 0, len = productsItems.length; i < len; i++) {
   var key = productsItems[i];
   key.addEventListener('click', addItemToTL);

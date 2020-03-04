@@ -1,10 +1,13 @@
 showProductsInCatalog();
 
+let productsItems = productsList.children;
 
 for (let i = 0, len = productsItems.length; i < len; i++) {
   let key = productsItems[i];
   key.addEventListener('click', addItemToTL);
 }
+
+document.querySelector('.banner_link').addEventListener('click', addItemToTL);
 
 
 

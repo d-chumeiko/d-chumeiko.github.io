@@ -3,7 +3,6 @@
 var gamburger = document.querySelector('.navbar_link--toggle');
 var navbarButtonSearch = document.querySelector('.navbar_button-search');
 var productsList = document.querySelector('.products_list');
-var productsItems = productsList.children;
 
 gamburger.addEventListener('click', gamburgerToggle);
 // navbarButtonSearch.addEventListener('click', searchMenuToggle);
