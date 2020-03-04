@@ -1,11 +1,40 @@
-// document.getElementById('wow').innerHTML = `abc ${3*12} <hr>`;
+let gamburger = document.querySelector('.navbar_link--toggle');
+let navbarButtonSearch = document.querySelector('.navbar_button-search');
+let productsList = document.querySelector('.products_list');
+let productsItems = productsList.children;
 
-function classToggle() {
-  const navs = document.querySelectorAll('.navbar_menu, .navbar_search')
-  
-  navs.forEach(nav => nav.classList.toggle('navbar_link--toggle-show'));
+gamburger.addEventListener('click', gamburgerToggle);
+// navbarButtonSearch.addEventListener('click', searchMenuToggle);
+
+let cart = {};
+let lsCatalog;
+
+saveToLS('catalog', window.catalog);
+lsCatalog = JSON.parse(localStorage.getItem('catalog'));
+
+
+
+
+
+
+
+function addItemToTL(e) {
+  let trg = e.target.parentNode;
+  let trgId = trg.dataset.id;
+  localStorage.setItem('itemId', JSON.stringify(trgId));
 }
-document.querySelector('.navbar_link--toggle').addEventListener('click', classToggle);
+
+function createProductTemplate(key) {
+  return `
+    <div class="products_item ${key.hasNew ? 'new-label' : ''}" data-id="${key.id}" data-price="${key.price.toFixed(2)}">
+      <a href="./item.html">
+        <img src="${key.thumbnail[0]}" alt="product-image" class="products_item_img">
+        <h4 class="products_item_title">${key.title}</h4>
+        <p class="products_item_price">£${key.price.toFixed(2)}</p>
+      </a>
+    </div>
+    `
+}
 
 
 
@@ -30,10 +59,27 @@ document.querySelector('.navbar_link--toggle').addEventListener('click', classTo
 
 
 
+function saveToLS(key, elem) {
+  localStorage.setItem(key, JSON.stringify(elem))
+}
 
 
 
+// function searchMenuToggle() {
+//   document.querySelector('.navbar_text-to-search').classList.toggle('navbar_text-to-search--opened');
+// }
 
+function gamburgerToggle() {
+  const navs = document.querySelectorAll('.navbar_menu, .navbar_search');
+  const gamburgerImg = gamburger.querySelector('img');
+
+  for (let i = 0; i < navs.length; i++) {
+    navs[i].classList.toggle('navbar_link--toggle-show');
+  }
+  
+  gamburgerImg.classList.toggle('gamburger-img-show');
+  gamburgerImg.classList.contains('gamburger-img-show') ? gamburgerImg.src = './img/icons/close.png' : gamburgerImg.src = './img/icons/icon-menu.png';
+}
 
   // Array.from for IE
 

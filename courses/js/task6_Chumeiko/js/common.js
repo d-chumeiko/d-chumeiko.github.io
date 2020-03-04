@@ -5,7 +5,7 @@ let cart = {};
 const _mainCartContent = document.getElementById('main-cart_content');
 
 // операции с LS
-// saveToLS('goods', goods);
+saveToLS('goods', goods);
 
 let goodsLS = JSON.parse(localStorage.getItem('goods'));
 

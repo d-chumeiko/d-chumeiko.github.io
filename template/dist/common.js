@@ -1,15 +1,48 @@
 'use strict';
 
-// document.getElementById('wow').innerHTML = `abc ${3*12} <hr>`;
+var gamburger = document.querySelector('.navbar_link--toggle');
+var navbarButtonSearch = document.querySelector('.navbar_button-search');
+var productsList = document.querySelector('.products_list');
+var productsItems = productsList.children;
 
-function classToggle() {
-  var navs = document.querySelectorAll('.navbar_menu, .navbar_search');
+gamburger.addEventListener('click', gamburgerToggle);
+// navbarButtonSearch.addEventListener('click', searchMenuToggle);
 
-  navs.forEach(function (nav) {
-    return nav.classList.toggle('navbar_link--toggle-show');
-  });
+var cart = {};
+var lsCatalog = void 0;
+
+saveToLS('catalog', window.catalog);
+lsCatalog = JSON.parse(localStorage.getItem('catalog'));
+
+function addItemToTL(e) {
+  var trg = e.target.parentNode;
+  var trgId = trg.dataset.id;
+  localStorage.setItem('itemId', JSON.stringify(trgId));
 }
-document.querySelector('.navbar_link--toggle').addEventListener('click', classToggle);
+
+function createProductTemplate(key) {
+  return '\n    <div class="products_item ' + (key.hasNew ? 'new-label' : '') + '" data-id="' + key.id + '" data-price="' + key.price.toFixed(2) + '">\n      <a href="./item.html">\n        <img src="' + key.thumbnail[0] + '" alt="product-image" class="products_item_img">\n        <h4 class="products_item_title">' + key.title + '</h4>\n        <p class="products_item_price">\xA3' + key.price.toFixed(2) + '</p>\n      </a>\n    </div>\n    ';
+}
+
+function saveToLS(key, elem) {
+  localStorage.setItem(key, JSON.stringify(elem));
+}
+
+// function searchMenuToggle() {
+//   document.querySelector('.navbar_text-to-search').classList.toggle('navbar_text-to-search--opened');
+// }
+
+function gamburgerToggle() {
+  var navs = document.querySelectorAll('.navbar_menu, .navbar_search');
+  var gamburgerImg = gamburger.querySelector('img');
+
+  for (var i = 0; i < navs.length; i++) {
+    navs[i].classList.toggle('navbar_link--toggle-show');
+  }
+
+  gamburgerImg.classList.toggle('gamburger-img-show');
+  gamburgerImg.classList.contains('gamburger-img-show') ? gamburgerImg.src = './img/icons/close.png' : gamburgerImg.src = './img/icons/icon-menu.png';
+}
 
 // Array.from for IE
 

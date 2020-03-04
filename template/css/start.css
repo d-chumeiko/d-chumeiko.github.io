@@ -133,7 +133,7 @@
 .selection-arrows_top {
   position: absolute;
   display: block;
-  bottom: 0;
+  bottom: 20px;
   width: 24px;
   height: 12px;
   background-image: url('./../img/icons/arrow.png');
@@ -153,14 +153,14 @@
 }
 
 .best-offer_left .best-offer_math-sign {
-  bottom: 40px;
+  bottom: 65px;
   margin: 0 70px;
 }
 
 .best-offer_right {
   display: flex;
   position: relative;
-  bottom: 32px;
+  bottom: 55px;
   width: 100%;
 }
 
@@ -203,7 +203,7 @@
 
 .best-offer_add-btn {
   position: absolute;
-  bottom: 155px;
+  bottom: 185px;
   right: 0;
 }
 

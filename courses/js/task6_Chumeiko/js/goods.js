@@ -151,14 +151,21 @@ function showGoodsOnPage(item) {
   activePage = item;
   item.classList.add('active-page');
 
-  let out = '';
   let pageNum = +item.innerHTML;
   let start = (pageNum - 1) * defaultGoodsOnPage;
   let end = start + defaultGoodsOnPage;
   let goodsOnPage = goodsLS.slice(start, end);
 
-  for (let key of goodsOnPage) {
-    out += `
+  _goods.innerHTML = createGood(goodsOnPage);
+  itemBtnHandler('.item-btn', addToCart);
+  
+}
+
+function createGood(arr) {
+  let output = '';
+
+  for (let key of arr) {
+    output += `
         <div class="item" data-code="${key.code}" data-price="${key.price}">
         <img class="item-img" src="${takeDefColor(key)}" alt="Изображение товара">
         <p class="item-info">
@@ -177,9 +184,7 @@ function showGoodsOnPage(item) {
       `;
   }
 
-  _goods.innerHTML = out;
-  itemBtnHandler('.item-btn', addToCart);
-  
+  return output;
 }
 
 // Сортировка товаров 

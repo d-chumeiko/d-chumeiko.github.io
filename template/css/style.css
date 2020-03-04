@@ -205,10 +205,12 @@ header {
 
 .navbar_search {
   position: relative;
+  display: block;
   float: right;
 }
 
 .navbar_text-to-search {
+  position: relative;
   width: 120px;
   margin-top: 3px;
   padding-bottom: 8px;
@@ -218,6 +220,14 @@ header {
   font-size: 12px;
   line-height: 13px;
   color: #a8a8a8;
+}
+
+.navbar_text-to-search--opened {
+  position: absolute;
+  top: -4px;
+  right: -5px;
+  width: 20% !important;
+  padding-left: 20px;
 }
 
 .navbar_text-to-search::placeholder {
@@ -293,6 +303,7 @@ header {
 
 .products_item_img {
   width: 100%;
+  max-height: 340px;
 }
 
 .products_item a:hover .products_item_title{
@@ -703,6 +714,10 @@ footer {
     width: 205px;
   }
 
+  .products_item_img {
+    max-height: 290px;
+  }
+
   .new-label::before {
     font-size: 13px;
   }
@@ -934,6 +949,10 @@ footer {
   .products_item_title {
     padding-top: 25px;
     margin-bottom: 15px;
+  }
+
+  .products_item_img {
+    max-height: 227px;
   }
 
   /* Footer */
