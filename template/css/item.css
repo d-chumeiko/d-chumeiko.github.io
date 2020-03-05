@@ -190,6 +190,12 @@
   .full-img {
     max-width: 515px;
     max-height: 345px;
+    width: 100%;
+    height: 100%;
+  }
+
+  .full-img_item, .thumbs-img_item {
+    width: 100%;
   }
   
   .thumbs-img {

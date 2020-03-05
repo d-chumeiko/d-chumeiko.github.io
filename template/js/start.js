@@ -30,27 +30,47 @@ leftTopArrow.addEventListener('click', changeProductToPrev.bind(null, leftBestOf
 rightBottomArrow.addEventListener('click', changeProductToNext.bind(null, rightBestOfferProducts, rightBottomArrow, 1));
 rightTopArrow.addEventListener('click', changeProductToPrev.bind(null, rightBestOfferProducts, rightBottomArrow, 1));
 
+// output prices of chosen products
+sumBestOfferPrices();
+
 // adding event listeners to all products on the page
 addEventListenersToProducts();
 
 // adding event listener to left banner
 document.querySelector('.banner_link').addEventListener('click', addItemToTL);
 
+// sum prices
+function sumBestOfferPrices() {
+  let oldPriceHTML = document.querySelector('.best-offer_old-price');
+  let newPriceHTML = document.querySelector('.best-offer_new-price');
+  let discount = +window.bestOffer.discount;
+
+  let leftProductPrice = +document.querySelectorAll('.products_item_price')[0].textContent.slice(1);
+  let RightProductPrice = +document.querySelectorAll('.products_item_price')[1].textContent.slice(1);
+
+  let oldPrice = (leftProductPrice + RightProductPrice).toFixed(2);
+
+  oldPriceHTML.textContent = `£${oldPrice}`;
+  newPriceHTML.textContent = `£${(oldPrice - discount).toFixed(2)}`;
+
+}
+
 // next product
 function changeProductToNext(products, arrow, num) {
   
-  currentItem++;
   let el = document.querySelectorAll('.products_item')[num];
-  console.log(el)
+  currentItem++;
   if (currentItem <= products.length) {
+    
     if (currentItem == products.length) {
       currentItem = 0;
     }
     document.querySelectorAll('.best-offer_item')[num].removeChild(el);
     arrow.insertAdjacentHTML('beforebegin', products[currentItem]);
   }
-
+  console.log(currentItem);
   addEventListenersToProducts();
+  sumBestOfferPrices();
 }
 
 // prev product
@@ -69,6 +89,8 @@ function changeProductToPrev(products, arrow, num) {
   }
 
   addEventListenersToProducts();
+  sumBestOfferPrices();
+  console.log(currentItem);
   return currentItem;
 }
 

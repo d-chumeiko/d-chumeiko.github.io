@@ -4,7 +4,7 @@ let productsList = document.querySelector('.products_list');
 
 
 gamburger.addEventListener('click', gamburgerToggle);
-// navbarButtonSearch.addEventListener('click', searchMenuToggle);
+navbarButtonSearch.addEventListener('click', searchMenuToggle);
 
 let cart = {};
 let lsCatalog;
@@ -65,9 +65,9 @@ function saveToLS(key, elem) {
 
 
 
-// function searchMenuToggle() {
-//   document.querySelector('.navbar_text-to-search').classList.toggle('navbar_text-to-search--opened');
-// }
+function searchMenuToggle() {
+  document.querySelector('.navbar_text-to-search').classList.toggle('navbar_text-to-search--active');
+}
 
 function gamburgerToggle() {
   const navs = document.querySelectorAll('.navbar_menu, .navbar_search');

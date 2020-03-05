@@ -210,7 +210,6 @@ header {
 }
 
 .navbar_text-to-search {
-  position: relative;
   width: 120px;
   margin-top: 3px;
   padding-bottom: 8px;
@@ -218,7 +217,7 @@ header {
   border-bottom: 2px solid #e5e5e5;
   font-family: 'OpenSansBold';
   font-size: 12px;
-  line-height: 13px;
+  line-height: 12px;
   color: #a8a8a8;
 }
 
@@ -693,16 +692,12 @@ footer {
   }
 
   .navbar_menu {
-    margin-right: 65px;
+    margin-right: 35px;
   }
 
   .navbar_link {
     margin-right: 25px;
     font-size: 12px;
-  }
-
-  .navbar_text-to-search {
-    width: 0;
   }
 
   /* product item */
@@ -929,6 +924,12 @@ footer {
     width: 170px;
   }
 
+  .navbar_button-search {
+    position: relative;
+    right: 20px;
+    top: 0px;
+  }
+
   /* Main btn */
   .main-btn {
     width: 220px;
@@ -1088,6 +1089,39 @@ footer {
 
    /* ------- Common End ------- */
 
+}
+
+@media only screen and (min-width: 767px) and (max-width: 855px) {
+  .navbar_search {
+    position: absolute;
+    display: block;
+    float: right;
+    width: 40%;
+    top: -4px;
+    right: 0;
+  }
+
+  .navbar_text-to-search {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar_text-to-search--active {
+    display: block !important;
+  }
+
+  .navbar_button-search {
+    position: absolute;
+    top: 2px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    right: 0;
+  }
 }
 
 @media only screen and (max-width: 767px) and (min-width: 525px) {

@@ -65,7 +65,7 @@ function createItemTemplate(key) {
       <div class="options_data">
         <h1 class="options_heading">${key.title}</h1>
         <p class="options_descr">${key.description}</p>
-        <p class="options_price">£${key.price}</p>
+        <p class="options_price">£${(key.price).toFixed(2)}</p>
         <p class="option_sizes">
           <span>Size:</span>
           <span class="size-of-item option--active">${key.sizes[0]}</span>
