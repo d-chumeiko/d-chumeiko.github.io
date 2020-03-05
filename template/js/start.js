@@ -1,43 +1,98 @@
+// show new arrivals products
 showProductsInCatalog();
 
+// counter for taking and changing best offer products
+let currentItem = 0;
+
+// left/right best offer products in arrays
 let leftBestOfferProducts = createLeftProductsInBestOffer(lsCatalog); 
 let rightBestOfferProducts = createRightProductsInBestOffer(lsCatalog);
 
-// let bestOfferItemLeft = document.querySelectorAll('.best-offer_item')[0];
-// let bestOfferItemRight = document.querySelectorAll('.best-offer_item')[1];
-
-let currentItem = 0;
-
+// best offer arrows arrays
 let topArrows = Array.from(document.querySelectorAll('.selection-arrows_top'));
-
 let bottomArrows = Array.from(document.querySelectorAll('.selection-arrows_bottom'));
 
-bottomArrows[0].insertBefore(createBestOfferItemLeft(0));
+// best offer arrows
+let leftTopArrow = topArrows[0];
+let leftBottomArrow = bottomArrows[0];
+let rightTopArrow = topArrows[1];
+let rightBottomArrow = bottomArrows[1];
 
-bottomArrows[1].insertBefore(createBestOfferItemRight(0));
+// show best offer default products 
+leftBottomArrow.insertAdjacentHTML('beforebegin', leftBestOfferProducts[currentItem]);
+rightBottomArrow.insertAdjacentHTML('beforebegin', rightBestOfferProducts[currentItem]);
 
+// left best offer listeners
+leftBottomArrow.addEventListener('click', changeProductToNext.bind(null, leftBestOfferProducts, leftBottomArrow, 0));
+leftTopArrow.addEventListener('click', changeProductToPrev.bind(null, leftBestOfferProducts, leftBottomArrow, 0));
+
+// right best offer listeners
+rightBottomArrow.addEventListener('click', changeProductToNext.bind(null, rightBestOfferProducts, rightBottomArrow, 1));
+rightTopArrow.addEventListener('click', changeProductToPrev.bind(null, rightBestOfferProducts, rightBottomArrow, 1));
+
+// adding event listeners to all products on the page
+addEventListenersToProducts();
+
+// adding event listener to left banner
+document.querySelector('.banner_link').addEventListener('click', addItemToTL);
+
+// next product
+function changeProductToNext(products, arrow, num) {
+  
+  currentItem++;
+  let el = document.querySelectorAll('.products_item')[num];
+  console.log(el)
+  if (currentItem <= products.length) {
+    if (currentItem == products.length) {
+      currentItem = 0;
+    }
+    document.querySelectorAll('.best-offer_item')[num].removeChild(el);
+    arrow.insertAdjacentHTML('beforebegin', products[currentItem]);
+  }
+
+  addEventListenersToProducts();
+}
+
+// prev product
+function changeProductToPrev(products, arrow, num) {
+
+  let el = document.querySelectorAll('.products_item')[num];
+  document.querySelectorAll('.best-offer_item')[num].removeChild(el);
+  
+  if (currentItem == 0) {
+    currentItem = products.length;
+  }
+
+  if (currentItem > 0) {
+    currentItem--;
+    arrow.insertAdjacentHTML('beforebegin', products[currentItem]);
+  }
+
+  addEventListenersToProducts();
+  return currentItem;
+}
+
+// create left best offer item
 function createBestOfferItemLeft(num) {
   return leftBestOfferProducts[num];
 }
 
+// create right best offer item
 function createBestOfferItemRight(num) {
   return rightBestOfferProducts[num]
 }
 
+// getting all products on the page
+function addEventListenersToProducts() {
+  let productsItems = document.querySelectorAll('.products_item');
 
-
-
-
-
-let productsItems = document.querySelectorAll('.products_item');
-
-for (let i = 0, len = productsItems.length; i < len; i++) {
-  let key = productsItems[i];
-  key.addEventListener('click', addItemToTL);
+  for (let i = 0, len = productsItems.length; i < len; i++) {
+    let key = productsItems[i];
+    key.addEventListener('click', addItemToTL);
+  }
 }
 
-document.querySelector('.banner_link').addEventListener('click', addItemToTL);
-
+// creating Left BestOffer Product Item
 function createLeftProductsInBestOffer(storage) {
   let output = [];
   
@@ -54,6 +109,7 @@ function createLeftProductsInBestOffer(storage) {
   return output;
 }
 
+// creating Right BestOffer Product Item
 function createRightProductsInBestOffer(storage) {
   let output = [];
   
@@ -70,10 +126,12 @@ function createRightProductsInBestOffer(storage) {
   return output;
 }
 
+// show products in arrivals
 function showProductsInCatalog() {
   productsList.innerHTML = createProductItemsInArrivals(lsCatalog);
 }
 
+// creating producrs in arrivals
 function createProductItemsInArrivals(storage) {
   let output = '';
   for (let i = 0, len = storage.length; i < len; i++) {
