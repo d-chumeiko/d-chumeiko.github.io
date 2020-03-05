@@ -3,20 +3,43 @@
 var gamburger = document.querySelector('.navbar_link--toggle');
 var navbarButtonSearch = document.querySelector('.navbar_button-search');
 var productsList = document.querySelector('.products_list');
+var cartCount = document.querySelector('.count-products-in-bag');
+var textOfEmptyBag = document.querySelector('.bag-is-empty');
 
 gamburger.addEventListener('click', gamburgerToggle);
 navbarButtonSearch.addEventListener('click', searchMenuToggle);
 
-var cart = {};
 var lsCatalog = void 0;
 
 saveToLS('catalog', window.catalog);
 lsCatalog = JSON.parse(localStorage.getItem('catalog'));
 
-function addItemToTL(e) {
+checkCartCount();
+
+function checkCartCount() {
+
+  var cartCountLS = getFromLS('shoppingBag');
+
+  var quantity = 0;
+  var fullPrice = 0;
+
+  for (var i = 0; i < cartCountLS.length; i++) {
+    var key = cartCountLS[i];
+    quantity += key['count'];
+    fullPrice += key['price'];
+  }
+
+  cartCount.textContent = '\xA3' + fullPrice + ' (' + quantity + ')';
+}
+
+function addItemToLS(e) {
   var trg = e.target.parentNode;
   var trgId = trg.dataset.id;
   localStorage.setItem('itemId', JSON.stringify(trgId));
+}
+
+function getFromLS(key) {
+  return JSON.parse(localStorage.getItem(key));
 }
 
 function createProductTemplate(key) {

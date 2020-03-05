@@ -1,27 +1,48 @@
 let gamburger = document.querySelector('.navbar_link--toggle');
 let navbarButtonSearch = document.querySelector('.navbar_button-search');
 let productsList = document.querySelector('.products_list');
-
+let cartCount = document.querySelector('.count-products-in-bag');
+let textOfEmptyBag = document.querySelector('.bag-is-empty');
 
 gamburger.addEventListener('click', gamburgerToggle);
 navbarButtonSearch.addEventListener('click', searchMenuToggle);
 
-let cart = {};
 let lsCatalog;
+
 
 saveToLS('catalog', window.catalog);
 lsCatalog = JSON.parse(localStorage.getItem('catalog'));
 
+checkCartCount();
 
 
 
 
+function checkCartCount() {
 
+  let cartCountLS = getFromLS('shoppingBag');
+  
+  let quantity = 0;
+  let fullPrice = 0
 
-function addItemToTL(e) {
+  for (let i = 0; i < cartCountLS.length; i++) {
+    let key = cartCountLS[i];
+    quantity += key['count'];
+    fullPrice += key['price'];
+  }
+
+  cartCount.textContent = `£${fullPrice} (${quantity})`;
+
+}
+
+function addItemToLS(e) {
   let trg = e.target.parentNode;
   let trgId = trg.dataset.id;
   localStorage.setItem('itemId', JSON.stringify(trgId));
+}
+
+function getFromLS(key) {
+  return JSON.parse(localStorage.getItem(key));
 }
 
 function createProductTemplate(key) {

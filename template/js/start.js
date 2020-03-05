@@ -37,7 +37,7 @@ sumBestOfferPrices();
 addEventListenersToProducts();
 
 // adding event listener to left banner
-document.querySelector('.banner_link').addEventListener('click', addItemToTL);
+document.querySelector('.banner_link').addEventListener('click', addItemToLS);
 
 // sum prices
 function sumBestOfferPrices() {
@@ -60,14 +60,18 @@ function changeProductToNext(products, arrow, num) {
   
   let el = document.querySelectorAll('.products_item')[num];
   currentItem++;
-  if (currentItem <= products.length) {
-    
-    if (currentItem == products.length) {
-      currentItem = 0;
-    }
+
+  if (currentItem < products.length) {
     document.querySelectorAll('.best-offer_item')[num].removeChild(el);
     arrow.insertAdjacentHTML('beforebegin', products[currentItem]);
   }
+
+  if (currentItem == products.length) {
+    currentItem = 0;
+    document.querySelectorAll('.best-offer_item')[num].removeChild(el);
+    arrow.insertAdjacentHTML('beforebegin', products[currentItem]);
+  }
+
   console.log(currentItem);
   addEventListenersToProducts();
   sumBestOfferPrices();
@@ -110,7 +114,7 @@ function addEventListenersToProducts() {
 
   for (let i = 0, len = productsItems.length; i < len; i++) {
     let key = productsItems[i];
-    key.addEventListener('click', addItemToTL);
+    key.addEventListener('click', addItemToLS);
   }
 }
 

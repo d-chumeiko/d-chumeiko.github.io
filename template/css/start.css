@@ -106,7 +106,7 @@
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   margin-top: 70px;
   padding-right: 100px;
 }
@@ -161,7 +161,6 @@
   display: flex;
   position: relative;
   bottom: 55px;
-  width: 100%;
 }
 
 .best-offer_right .best-offer_math-sign {

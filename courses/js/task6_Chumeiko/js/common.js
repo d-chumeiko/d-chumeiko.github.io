@@ -20,7 +20,7 @@ function addToCart() {
   } else {
     cart[code] = 1;
   }
-  saveToLS('cart', cart);
+  saveCartToLs();
   checkCart();
   checkCartCount();
 }

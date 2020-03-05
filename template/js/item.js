@@ -5,8 +5,101 @@ itemOptions.innerHTML = showItemOnPage(lsCatalog);
 
 document.querySelector('.thumbs-img').addEventListener('click', showFullImg);
 
+let addToBagBtn = document.getElementById('add-to-cart-btn');
 
+let optionSizes = document.querySelector('.option_sizes');
+let optionColors = document.querySelector('.option_colors');
 
+optionSizes.addEventListener('click', chooseActiveSize);
+optionColors.addEventListener('click', chooseActiveColor);
+
+addToBagBtn.addEventListener('click', addToCart);
+
+let shoppingBag = getFromLS('shoppingBag') || [];
+
+// добавить в корзину
+function addToCart(e) {
+  e.preventDefault();
+
+  let size, color;
+  let id = this.dataset.id;
+  let title = document.querySelector('.options_heading').textContent;
+  let price = +document.querySelector('.options_price').textContent.slice(1);
+  let img = document.querySelector('.full-img_item').src;
+
+  let sizes = document.querySelectorAll('.size-of-item');
+  let colors = document.querySelectorAll('.color-of-item');
+
+  for (let i = 0; i < sizes.length; i++) {
+    if (sizes[i].classList.contains('option--active')) size = sizes[i].textContent;
+  }
+
+  for (let i = 0; i < colors.length; i++) {
+    if (colors[i].classList.contains('option--active')) color = colors[i].textContent;
+  }
+
+  let item = {
+    id: id,
+    title: title,
+    price: price,
+    img: img,
+    size: size,
+    color: color,
+  };
+
+  if (!shoppingBag.length) {
+    item.count = 1;
+    shoppingBag.push(item);
+  }
+
+  else {
+    let isSame = shoppingBag.some( (el) => (el.id === id && el.color === color && el.size === size) );
+
+    if (!isSame) {
+      item.count = 1;
+      shoppingBag.push(item);
+    }
+
+    else {
+      shoppingBag.forEach((el) => {
+        if (el.id === id && el.color === color && el.size === size) {
+          el.count++;
+        }
+      });
+    }
+
+  }
+  saveToLS('shoppingBag', shoppingBag);
+
+  // checkCart();
+  checkCartCount();
+}
+
+function saveCartToLs() {
+  saveToLS('cart', cart)
+}
+
+function chooseActiveColor(e) {
+  let trg = e.target;
+  if (trg.classList.contains('color-of-item')) {
+    let itemColors = optionColors.querySelectorAll('.color-of-item');
+    for (let i = 0; i < itemColors.length; i++) {
+      itemColors[i].classList.remove('option--active');
+    }
+    trg.classList.add('option--active')
+  }
+}
+
+function chooseActiveSize(e) {
+  let trg = e.target;
+  if (trg.classList.contains('size-of-item')) {
+    let itemSizes = optionSizes.querySelectorAll('.size-of-item');
+    for (let i = 0; i < itemSizes.length; i++) {
+      itemSizes[i].classList.remove('option--active');
+    }
+    trg.classList.add('option--active')
+  }
+}
 
 function showFullImg(e) {
   let trg = e.target;
@@ -26,10 +119,7 @@ function showFullImg(e) {
     trg.parentElement.classList.add("thumbs-img_item--active");
   }
 
-
 }
-
-
 
 function showItemOnPage(storage) {
   let output = '';
@@ -65,22 +155,20 @@ function createItemTemplate(key) {
       <div class="options_data">
         <h1 class="options_heading">${key.title}</h1>
         <p class="options_descr">${key.description}</p>
-        <p class="options_price">£${(key.price).toFixed(2)}</p>
+        <p class="options_price">£${key.discountedPrice ? key.discountedPrice.toFixed(2) : (key.price).toFixed(2)}</p>
         <p class="option_sizes">
           <span>Size:</span>
           <span class="size-of-item option--active">${key.sizes[0]}</span>
-          <span class="size-of-item">${key.sizes[1] ? key.sizes[1] : ''}</span>
-          <span class="size-of-item">${key.sizes[2] ? key.sizes[2] : ''}</span>
+          ${key.sizes.slice(1).map(size => `<span class="size-of-item">${size}</span>`).join(' ')}
         </p>
         <p class="option_colors">
           <span>Color:</span>
           <span class="color-of-item option--active">${key.colors[0]}</span>
-          <span class="color-of-item">${key.colors[1] ? key.colors[1] : ''}</span>
-          <span class="color-of-item">${key.colors[2] ? key.colors[2] : ''}</span>
+          ${key.colors.slice(1).map(color => `<span class="color-of-item">${color}</span>`).join(' ')}
         </p>
 
         <div class="item_add-to-bag-btn">
-          <a href="#" class="main-btn" data-id="${key.id}">Add to bag</a>
+          <a href="#" class="main-btn" id="add-to-cart-btn" data-id="${key.id}">Add to bag</a>
         </div>
     </div>
       `

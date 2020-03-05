@@ -7,17 +7,8 @@ let productsItems = productsList.children;
 
 for (let i = 0, len = productsItems.length; i < len; i++) {
   let key = productsItems[i];
-  key.addEventListener('click', addItemToTL);
+  key.addEventListener('click', addItemToLS);
 }
-
-
-
-
-
-
-
-
-
 
 function showProductsInCatalog() {
   productsList.innerHTML = createProductItems(lsCatalog);

@@ -11,7 +11,7 @@ var productsItems = productsList.children;
 
 for (var i = 0, len = productsItems.length; i < len; i++) {
   var key = productsItems[i];
-  key.addEventListener('click', addItemToTL);
+  key.addEventListener('click', addItemToLS);
 }
 
 function showProductsInCatalog() {
