@@ -14,24 +14,23 @@ navbarButtonSearch.addEventListener('click', searchMenuToggle);
 // save to LS and get from LS catalog items
 var lsCatalog = void 0;
 saveToLS('catalog', window.catalog);
-lsCatalog = JSON.parse(localStorage.getItem('catalog'));
+lsCatalog = getFromLS('catalog');
 
-checkCartCount();
+checkCartPriceAndCount();
 
 // cart count and price
-function checkCartCount() {
+function checkCartPriceAndCount() {
 
-  var cartCountLS = getFromLS('shoppingBag');
-
-  var quantity = 0;
   var fullPrice = 0;
+  var quantity = 0;
 
-  if (cartCountLS) {
-    for (var i = 0; i < cartCountLS.length; i++) {
-      var key = cartCountLS[i];
-      quantity += key['count'];
-      fullPrice += key['price'];
-    }
+  var shb = getFromLS('shoppingBag');
+
+  for (var i = 0; i < shb.length; i++) {
+    var key = shb[i];
+    var itemPrice = key.price * key.count;
+    quantity += key.count;
+    fullPrice += itemPrice;
   }
 
   cartCount.textContent = '\xA3' + fullPrice + ' (' + quantity + ')';
@@ -39,9 +38,12 @@ function checkCartCount() {
 
 // add item to LS
 function addItemToLS(e) {
-  var trg = e.target.parentNode;
-  var trgId = trg.dataset.id;
-  localStorage.setItem('itemId', JSON.stringify(trgId));
+
+  if (e.target.tagName === 'IMG' || e.target.tagName === 'A') {
+    var trg = e.target.parentNode;
+    var trgId = trg.dataset.id;
+    localStorage.setItem('itemId', JSON.stringify(trgId));
+  }
 }
 
 // get elem by key from LS

@@ -18,6 +18,10 @@ header {
   margin: 0 auto;
 }
 
+.catalog a:hover {
+  color: initial;
+}
+
 .catalog_filter {
   position: relative;
 }

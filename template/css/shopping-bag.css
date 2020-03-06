@@ -39,25 +39,35 @@
   margin-bottom: 90px;
 }
 
-.shb-item_img {
-  position: relative;
-  max-width: 240px;
-  width: 100%;
+.shb-item:hover .shb-item_name {
+  color: #f14a58;
 }
 
-.shb-item_img:hover::after {
+.shb-item:hover .shb-item_img::after {
   content: "Edit item";
   display: block;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 340px;
+  height: 100%;
   line-height: 340px;
   background-color: rgba(0, 0, 0, 0.6);
   font-family: 'OpenSansBold';
   font-size: 22px;
   color: #f14a58;
+}
+
+.shb-item_img {
+  position: relative;
+  max-width: 240px;
+  max-height: 340px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.shb-item_img img {
+  width: 100%;
 }
 
 .shb-item_info {
@@ -221,6 +231,10 @@
     max-width: 50%;
   }
 
+  .shb-item:hover .shb-item_img::after {
+    line-height: 217px;
+  }
+
   .shb-item_img {
     max-width: 145px;
   }
@@ -228,6 +242,7 @@
   .shb-item_img img {
     width: 100%;
   }
+  
 
   .shb-item_info {
     padding-top: 5px;
@@ -286,7 +301,7 @@
 @media only screen and (max-width: 767px) {
 
   .shopping-bag_heading {
-    font-size: 18x;
+    font-size: 18px;
   }
 
   .shb-item {

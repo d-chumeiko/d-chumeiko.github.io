@@ -70,6 +70,10 @@ a {
   text-decoration: none;
 }
 
+a:hover {
+  color: #f14a58;
+}
+
 input,
 button {
   outline: none;
@@ -310,7 +314,7 @@ header {
   color: #f14a58;
 }
 
-.products_item a:hover::after{
+.products_item a:hover::after {
   content: "View item";
   display: block;
   position: absolute;
@@ -714,6 +718,11 @@ footer {
     max-height: 290px;
   }
 
+  .products_item a:hover::after {
+    height: 290px;
+    line-height: 290px;
+  }
+
   .new-label::before {
     font-size: 13px;
   }
@@ -831,10 +840,6 @@ footer {
 
   main {
     width: 100%;
-  }
-
-  body {
-    width: 99vw;
   }
 
   /* --- Header --- */
@@ -955,6 +960,11 @@ footer {
 
   .products_item_img {
     max-height: 227px;
+  }
+
+  .products_item a:hover::after {
+    height: 227px;
+    line-height: 227px;
   }
 
   /* Footer */

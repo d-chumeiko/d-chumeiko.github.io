@@ -77,7 +77,7 @@ function addToCart(e) {
   }
 
   saveToLS('shoppingBag', shoppingBag);
-  checkCartCount();
+  checkCartPriceAndCount();
 }
 
 

@@ -3,7 +3,6 @@ let shoppingBagHTML = document.querySelector('.shopping-bag_products');
 let emptyBagBtn = document.querySelector('.shopping-bag_empty-bag');
 let totalPrice = document.querySelector('.total-price');
 
-
 // get shoppingBag from LS
 let shoppingBag = getFromLS('shoppingBag') || [];
 
@@ -21,34 +20,43 @@ for (let i = 0, len = shoppingBagProducts.length; i < len; i++) {
 
 // listeners
 emptyBagBtn.addEventListener('click', emptyBag);
+document.querySelector('.checkout-btn').addEventListener('click', checkout);
 
 
-function plusGood(e) {
+function plusGood() {
 
-  let trg = e.target;
-  console.log(trg);
-
-  let id = this.dataset.id;
+  let item = this.closest('.shb-item');
+  let id = item.dataset.id
+  let color = item.querySelector('.param_color').textContent.split(' ').slice(1).join(' ');
+  let size = item.querySelector('.param_size').textContent.split(' ').slice(1).join(' ');
 
   for (let i = 0; i < shoppingBag.length; i++) {
     let key = shoppingBag[i];
-    if (key.id === id) {
+    if (key.id === id && key.color === color && key.size === size) {
       key.count++;
     }
   }
 
   saveToLS('shoppingBag', shoppingBag);
-  showShoppingBagProducts()
+  showShoppingBagProducts();
+  outTotalPrice();
+  checkCartPriceAndCount();
 }
 
 function minusGood() {
-  let id = this.dataset.id;
+
+  let item = this.closest('.shb-item');
+  let id = item.dataset.id
+  let color = item.querySelector('.param_color').textContent.split(' ').slice(1).join(' ');
+  let size = item.querySelector('.param_size').textContent.split(' ').slice(1).join(' ');
 
   for (let i = 0; i < shoppingBag.length; i++) {
+    let key = shoppingBag[i];
 
-    if (shoppingBag[i].id === id) {
-      if (shoppingBag[i].count > 1) {
-        shoppingBag[i].count--;
+    if (key.id === id && key.color === color && key.size === size) {
+
+      if (key.count > 1) {
+        key.count--;
       } 
       
       else {
@@ -62,16 +70,23 @@ function minusGood() {
   }
 
   saveToLS('shoppingBag', shoppingBag);
-  showShoppingBagProducts()
+  showShoppingBagProducts();
+  outTotalPrice();
+  checkCartPriceAndCount();
 }
 
 function removeItemFromBag(e) {
   e.preventDefault();
-  let id = this.closest('.shb-item').dataset.id;
+  
+  let item = this.closest('.shb-item');
+  let id = item.dataset.id
+  let color = item.querySelector('.param_color').textContent.split(' ').slice(1).join(' ');
+  let size = item.querySelector('.param_size').textContent.split(' ').slice(1).join(' ');
+
 
   for (let i = 0; i < shoppingBag.length; i++) {
-
-    if (shoppingBag[i].id === id) {
+    let key = shoppingBag[i];
+    if (key.id === id && key.color === color && key.size === size) {
       delete shoppingBag[i];
       shoppingBag = shoppingBag.filter(function (x) {
         return x !== undefined && x !== null;
@@ -80,7 +95,9 @@ function removeItemFromBag(e) {
   }
 
   saveToLS('shoppingBag', shoppingBag);
-  showShoppingBagProducts()
+  showShoppingBagProducts();
+  outTotalPrice();
+  checkCartPriceAndCount();
 }
 
 // empty bag
@@ -92,15 +109,30 @@ function emptyBag(e) {
   localStorage.removeItem('shoppingBag');
   totalPrice.textContent = `Total price: 0`;
   cartCount.innerHTML = '(0)';
+  checkCartPriceAndCount();
+}
+
+function checkout() {
+
+  document.querySelector('.shopping-bag_products').innerHTML = `<h2 class="bag-is-empty">Thank for your purchase</h2>`;
+
+  localStorage.removeItem('shoppingBag');
+  totalPrice.textContent = `Total price: 0`;
+  cartCount.innerHTML = '(0)';
+  checkCartPriceAndCount();
 }
 
 // totalPrice outpuy
 function outTotalPrice() {
-  let fullPrice = 0;
 
-  for (let i = 0; i < shoppingBag.length; i++) {
-    let key = shoppingBag[i];
-    fullPrice += key['price'];
+  let fullPrice = 0;
+  let shb = getFromLS('shoppingBag');
+
+  for (let i = 0; i < shb.length; i++) {
+    let key = shb[i];
+    let itemPrice = key.price * key.count;
+    fullPrice += itemPrice;
+    console.log(fullPrice);
   }
 
   totalPrice.textContent = `Total price: £${fullPrice}`;
@@ -136,7 +168,7 @@ function createShoppingBagProduct(key) {
     <img src="${key.img}" alt="product-in-bag">
   </a>
   <div class="shb-item_info">
-    <h4 class="shb-item_name">${key.title}</h4>
+    <a class="shb-item_name" href="./item.html"><h4>${key.title}</h4></a>
     <span class="shb-item_price">£${key.price * key.count}</span>
     <p class="shb-item_params">
       <span class="param_color">Color: ${key.color}</span>
