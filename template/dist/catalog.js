@@ -2,23 +2,32 @@
 
 function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
 
-var filter = document.getElementsByClassName("catalog_filter")[0];
-var mobileFilter = document.getElementsByClassName("filter-list--hidden")[0];
+// filter elements from html
+var filter = document.querySelector(".catalog_filter");
+var filterListHidden = document.querySelector(".filter-list--hidden");
 
+// listener to enable filter
+filter.addEventListener('click', configureFilterSection);
+
+// show catalog products
 showProductsInCatalog();
 
+// catalog items
 var productsItems = productsList.children;
 
+// listners to catalog items
 for (var i = 0, len = productsItems.length; i < len; i++) {
   var key = productsItems[i];
   key.addEventListener('click', addItemToLS);
 }
 
+// showing catalog items
 function showProductsInCatalog() {
   productsList.innerHTML = createProductItems(lsCatalog);
   outputCatalogInfo();
 }
 
+// creating catalog items
 function createProductItems(storage) {
   var output = '';
   for (var _i = 0, _len = storage.length; _i < _len; _i++) {
@@ -53,41 +62,55 @@ window.addEventListener("resize", function () {
   outputCatalogInfo();
 });
 
-filter.addEventListener("click", function (e) {
-  var target = e.target;
-  if (!target.classList.contains("sub-list-item")) return;
-  var parentList = target.parentElement.parentElement; //Родитель родителя елемента по которому был клик (родительский li)
-  var parentListHtml = parentList.getElementsByClassName("list-item-caption")[0].innerHTML; //InnerHtml родительского li по умолчанию
-  var subListItem = target.parentElement.children; // Дети родителя елемента по которому был клик (родительский ul в котором подменю)
-  var mobilList = document.querySelector(".filter-list--hidden"); // Мобильный список
-  var mobileItem = mobilList.getElementsByClassName("filter-list-item-mobile"); // Елемент мобильного списка
-  var index = [].concat(_toConsumableArray(parentList.parentNode.children)).indexOf(parentList); //Индекс елемента по которому был клик(преобразует NodeList в массив)
-  var value = parentList.getElementsByClassName("select-value")[0]; // Значение фильтра в родительском елементе
-  var targetHtml = target.innerHTML; // InnerHTML елемента по которому был клик
-  if (targetHtml === "Not selected") {
-    // Если InnerHTML елемента по которому был клик равен "Not selected"
-    parentList.classList.remove("select"); // У родительского li убрать класс "select"
-    for (var _i2 = 0; _i2 < subListItem.length; _i2++) {
-      subListItem[_i2].classList.remove("highlight"); // У всех елементов подменю убрать класс
-    }
-    mobileItem[index].innerHTML = parentListHtml; // Значение фильтра Елемента мобильного списка  на InnerHTML  родительского li по умолчанию
-    mobileItem[index].classList.remove("select"); //Елементу мобильного списка убрать класс
-  } else {
-    parentList.classList.add("select"); // Родительскому li добавить класс "select"
-    value.innerHTML = targetHtml; // Значение фильтра в родительском елементе на InnerHTML елемента по которому был клик 
-    mobileItem[index].innerHTML = targetHtml; // Значение фильтра Елемента мобильного списка  на InnerHTML елемента по которому был клик 
-    mobileItem[index].classList.add("select"); //Елементу мобильного списка добавить класс
-    for (var _i3 = 0; _i3 < subListItem.length; _i3++) {
-      subListItem[_i3].classList.remove("highlight"); // У всех елементов подменю убрать класс
-    }
-    target.classList.add("highlight"); // Добавить класс елементу по котрому был клик
-  }
-});
+// filter conifgure
+function configureFilterSection(e) {
+  var trg = e.target;
 
-//Показать мобильный фильтр
-mobileFilter.addEventListener("click", function (e) {
-  var target = e.target;
-  if (target.classList.contains("close-filter")) {
+  if (trg.classList.contains("item-params_option")) {
+
+    var filterList = document.querySelector('.filter-list');
+    var filterListItem = trg.closest('.filter-list_item');
+    var filterListItemHeading = filterListItem.querySelector(".filter-list_item-heading").textContent;
+    var filterListItemParams = trg.parentElement.children;
+    var _filterListHidden = document.querySelector(".filter-list--hidden");
+    var filterListItemShorten = _filterListHidden.querySelectorAll(".filter-list_item-shorten");
+    var indexOfFilterListItem = [].concat(_toConsumableArray(filterList.children)).indexOf(filterListItem);
+    var selectedFilterListItem = filterListItem.querySelector(".filter-list_item--selected");
+    var trgValue = trg.innerHTML;
+
+    if (trgValue === 'Not selected') {
+
+      filterListItem.classList.remove("select");
+
+      for (var _i2 = 0; _i2 < filterListItemParams.length; _i2++) {
+        filterListItemParams[_i2].classList.remove("highlight");
+      }
+
+      filterListItemShorten[indexOfFilterListItem].innerHTML = filterListItemHeading;
+      filterListItemShorten[indexOfFilterListItem].classList.remove("select");
+    } else {
+
+      filterListItem.classList.add("select");
+      selectedFilterListItem.innerHTML = trgValue;
+      filterListItemShorten[indexOfFilterListItem].innerHTML = trgValue;
+      filterListItemShorten[indexOfFilterListItem].classList.add("select");
+
+      for (var _i3 = 0; _i3 < filterListItemParams.length; _i3++) {
+        filterListItemParams[_i3].classList.remove("highlight");
+      }
+
+      trg.classList.add("highlight");
+    }
+  }
+}
+
+// show hidden filter
+filterListHidden.addEventListener("click", function (e) {
+  var trg = e.target;
+
+  if (trg.classList.contains("close-filter")) {
     filter.classList.remove("filter-open");
-  } else filter.classList.add("filter-open");
+  } else {
+    filter.classList.add("filter-open");
+  }
 });

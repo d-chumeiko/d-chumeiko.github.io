@@ -1,6 +1,6 @@
 main {
- max-width: 1300px;
- width: 100%;
+  max-width: 1300px;
+  width: 100%;
 }
 
 header {
@@ -30,25 +30,28 @@ header {
 }
 
 .filter-list--hidden {
-  padding: 25px 40px;
-  border-bottom: 1px solid #e5e5e5;
+  padding: 25px 10px;
+  border-bottom: 1px solid rgb(229, 229, 229);
 }
 
-.filter-list-item-mobile {
-  font-family: "Open Sans", sans-serif;
+.filter-list_item-shorten {
+  font-family: "OpenSansBold", sans-serif;
   font-size: 14px;
-  font-weight: 700;
 }
 
-.filter-list-item-mobile:not(:last-child):after {
+.filter-list_item-shorten::after {
   content: ',';
 }
 
-.filter-list-item-mobile+.filter-list-item-mobile {
+.filter-list_item-shorten:nth-child(6)::after {
+  content: '';
+}
+
+.filter-list_item-shorten+.filter-list_item-shorten {
   margin-left: 5px;
 }
 
-.filter-list-item {
+.filter-list_item {
   position: relative;
   width: 17%;
   padding: 24px 20px;
@@ -57,90 +60,74 @@ header {
   text-align: left;
 }
 
-.filter-list-item::after {
-  content: '';
-  position: absolute;
-  top: 50%;
-  right: 26px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 4px 2px 0 2px;
-  border-color: #000000 transparent transparent transparent;
-}
 
-.filter-list-item:hover {
+.filter-list_item:hover {
   cursor: pointer;
   color: #f14a58;
-  border-left: 1px solid #e5e5e5;
-  border-right: 1px solid #e5e5e5;
+  border-left: 1px solid rgb(229, 229, 229);
+  border-right: 1px solid rgb(229, 229, 229);
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
-          box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 3px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
-.filter-list-item.select {
+.filter-list_item.select {
   padding: 16px 20px;
   background: #f7f7f7;
 }
 
-.filter-list-item-mobile.select {
+.filter-list_item-shorten.select {
   color: #f14a58;
 }
 
-.list-item-caption {
-  font-family: "Open Sans", sans-serif;
+.filter-list_item-heading {
+  font-family: 'OpenSansBold', sans-serif;
   font-size: 16px;
-  font-weight: 700;
 }
 
-.filter-list-item.select .list-item-caption {
-  font-family: "Roboto", sans-serif;
+.filter-list_item.select .filter-list_item-heading {
+  font-family: 'RobotoBold', sans-serif;
   font-size: 12px;
-  font-weight: 700;
   color: #000;
 }
 
-.select-value {
+.filter-list_item--selected {
   display: none;
 }
 
-.filter-list-item.select .select-value {
+.filter-list_item.select .filter-list_item--selected {
   display: block;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'OpenSansBold', sans-serif;
   font-size: 16px;
-  font-weight: 700;
   color: #f14a58;
 }
 
-.filter-sub-list {
+.filter-list_item-params {
   display: none;
-  padding: 0 0 7px 0;
-  color: #000;
   position: absolute;
-  width: 100%;
-  box-sizing: initial;
+  padding: 0;
+  color: #000;
   left: -1px;
   top: 99%;
-  border: 1px solid #e5e5e5;
+  width: 100%;
+  border: 1px solid rgb(229, 229, 229);
   background: #fff;
   -webkit-box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
   box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.1);
   z-index: 999;
 }
 
-.filter-list-item:hover .filter-sub-list {
+.filter-list_item:hover .filter-list_item-params {
   display: block;
 }
 
-.sub-list-item {
+.item-params_option {
   padding: 10px 20px;
-  font-family: "Open Sans", sans-serif;
+  font-family: 'OpenSansBold', sans-serif;
   font-size: 12px;
-  font-weight: 700;
 }
 
-.sub-list-item:hover,
-.sub-list-item.highlight {
+.item-params_option:hover,
+.item-params_option.highlight {
   cursor: pointer;
   color: #f14a58;
   background: #f7f7f7;
@@ -152,21 +139,19 @@ header {
 }
 
 .filter-list--hidden::after {
-  content: '';
+  content: "▾";
   position: absolute;
-  top: 50%;
-  right: 40px;
+  top: 39%;
+  right: 40%;
   width: 0;
   height: 0;
-  border-style: solid;
-  border-width: 8px 6px 0 6px;
-  border-color: #000000 transparent transparent transparent;
+  font-size: 15px;
 }
 
 .close-filter {
   position: absolute;
-  top: 24px;
-  right: 40px;
+  top: 25px;
+  right: 15px;
   display: none;
   width: 19px;
   height: 19px;
@@ -218,131 +203,136 @@ header {
   /* Filter */
 
   .catalog_filter {
-      border-bottom: none;
+    border-bottom: none;
   }
 
   .filter-list {
-      display: none;
+    display: none;
   }
 
   .catalog_filter.filter-open .filter-list {
     position: relative;
-      top: 100%;
-      left: 0;
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-      padding: 50px 40px 0;
-      background: #fff;
-      border-bottom: 1px solid #e5e5e5;
-      z-index: 1;
+    top: 100%;
+    left: 0;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    padding: 50px 40px 0;
+    background-color: #fff;
+    border-bottom: 1px solid rgb(229, 229, 229);
+    z-index: 1;
   }
 
-  .filter-list-item {
-      width: 33%;
-      padding: 0;
-      border: none;
+  .filter-list_item {
+    width: 33%;
+    padding: 0;
+    border: none;
   }
 
-  .filter-list-item::after {
-      content: '';
-      display: none;
+  .filter-list_item::after {
+    content: '';
+    display: none;
   }
 
-  .filter-list-item:first-child {
-      padding-left: 0;
+  .filter-list_item:first-child {
+    padding-left: 0;
   }
 
-  .filter-list-item:hover {
-      cursor: pointer;
-      color: #000;
-      border: 0px solid #e5e5e5;
-      -webkit-box-shadow: none;
-              box-shadow: none;
+  .filter-list_item:hover {
+    cursor: pointer;
+    color: #000;
+    border: 0px solid rgb(229, 229, 229);
+    -webkit-box-shadow: none;
+    box-shadow: none;
   }
 
-  .list-item-caption {
-      display: inline-block;
-      font-family: 'Roboto', sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      margin-bottom: 25px;
+  .filter-list_item-heading {
+    display: inline-block;
+    font-family: 'RobotoBold', sans-serif;
+    font-size: 17px;
+    margin-bottom: 25px;
   }
 
-  .filter-list-item:first-child .filter-sub-list>.sub-list-item {
-      padding-left: 14px;
+  .filter-list_item:first-child .filter-list_item-params>.item-params_option {
+    padding-left: 14px;
   }
 
-  .filter-list-item.select {
-      padding: 0;
-      background: inherit;
+  .filter-list_item.select {
+    padding: 0;
+    background: inherit;
   }
 
-  .filter-list-item.select .select-value {
-      display: none;
+  .filter-list_item.select .filter-list_item--selected {
+    display: none;
   }
 
-  .filter-list-item.select .sub-list-item:first-child {
-      color: #a8a8a8;
+  .filter-list_item.select .item-params_option:first-child {
+    color: #a8a8a8;
   }
 
-  .filter-list-item.select .list-item-caption {
-      font-family: "Roboto", sans-serif;
-      font-size: 17px;
-      font-weight: 700;
-      color: #000;
+  .filter-list_item.select .filter-list_item-heading {
+    font-family: "RobotoBold", sans-serif;
+    font-size: 17px;
+    color: #000;
   }
 
-  .filter-sub-list {
-      display: block;
-      color: #000;
-      position: static;
-      width: 100%;
-      margin-left: 14px;
-      margin-bottom: 50px;
-      border: 0px solid #e5e5e5;
-      background: #fff;
-      list-style-type: disc;
-      -webkit-box-shadow: none;
-              box-shadow: none;
-      z-index: 1;
+  .filter-list_item-params {
+    display: block;
+    width: 100%;
+    position: relative;
+    top: 0;
+    margin: 0 0 50px 0;
+    border: none;
+    background: #fff;
+    color: #000;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    z-index: 1;
   }
 
-  .sub-list-item {
-      padding: 0;
-      padding-left: 14px;
-      font-size: 14px;
-      color: #a8a8a8;
+  .item-params_option {
+    position: relative;
+    padding: 0 0 0 20px;
+    font-size: 14px;
+    color: #a8a8a8;
   }
 
-  .sub-list-item:first-child {
-      color: #000;
+  .item-params_option::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    top: -25%;
+    font-size: 20px;
   }
 
-  .sub-list-item+.sub-list-item {
-      margin-top: 20px;
+  .item-params_option:first-child {
+    color: #000;
   }
 
-  .sub-list-item:hover,
-  .sub-list-item.highlight {
-      background: inherit;
-      color: #f14a58;
+  .item-params_option+.item-params_option {
+    margin-top: 20px;
+  }
+
+  .item-params_option:hover,
+  .item-params_option.highlight {
+    background: inherit;
+    color: #f14a58;
   }
 
   .filter-list--hidden {
-      display: -webkit-box;
-      display: -ms-flexbox;
-      display: flex;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
   }
 
   .catalog_filter.filter-open .filter-list--hidden::after {
-      display: none;
+    display: none;
   }
 
   .catalog_filter.filter-open .filter-list--hidden .close-filter {
-      display: block;
+    display: block;
   }
 
   /* Catalog */
@@ -365,7 +355,7 @@ header {
     width: 256px;
     height: 70px;
   }
-  
+
   .catalog .products_list .products_item:last-child {
     display: block;
   }
@@ -376,40 +366,36 @@ header {
 
   /* Filter */
   .filter-list--hidden {
-      padding: 21px 20px;
-      overflow: hidden;
+    padding: 20px 10px;
+    overflow: hidden;
   }
 
-  .filter-list-item-mobile {
-      font-size: 13px;
-      white-space: nowrap;
+  .filter-list_item-shorten {
+    font-size: 13px;
   }
 
   .close-filter {
-      top: 19px;
-      right: 20px;
-      background-color: #fff;
-      -webkit-box-shadow: 20px 0 55px 65px rgb(255, 255, 255);
-              box-shadow: 20px 0 55px 65px rgb(255, 255, 255);
+    top: 20px;
+    right: 10px;   
   }
 
   .filter-list--hidden::after {
-      right: 20px;
-      background: #fff;
-      -webkit-box-shadow: 20px 0 55px 70px rgb(255, 255, 255);
-              box-shadow: 20px 0 55px 70px rgb(255, 255, 255);
+    left: 300px;
+    background: #fff;
+    -webkit-box-shadow: 0px 0px 50px 85px rgb(255, 255, 255);
+    box-shadow: 40px 0px 50px 85px rgb(255, 255, 255);
   }
 
-  .filter-list-item {
-      width: 50%;
+  .filter-list_item {
+    width: 50%;
   }
 
   .catalog_filter.filter-open .filter-list {
-      padding: 40px 20px 0;
+    padding: 50px 10px 0;
   }
 
-  .filter-sub-list {
-      margin-bottom: 40px;
+  .filter-list_item-params {
+    margin-bottom: 40px;
   }
 
   /* Catalog */
@@ -437,4 +423,3 @@ header {
 
 
 }
-

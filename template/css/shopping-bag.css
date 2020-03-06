@@ -107,6 +107,7 @@
   font-family: 'OpenSansBold';
   font-size: 13px;
   color: #f14a58;
+  cursor: pointer;
 }
 
 .param_quantity--minus {

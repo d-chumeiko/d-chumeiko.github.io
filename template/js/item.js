@@ -3,21 +3,27 @@ let itemOptions = document.querySelector('.options');
 
 itemOptions.innerHTML = showItemOnPage(lsCatalog);
 
+// thumbs listener 
 document.querySelector('.thumbs-img').addEventListener('click', showFullImg);
 
+// add to bag btn
 let addToBagBtn = document.getElementById('add-to-cart-btn');
 
+// sizes and colors from html
 let optionSizes = document.querySelector('.option_sizes');
 let optionColors = document.querySelector('.option_colors');
 
+// listeners for colors and sizes
 optionSizes.addEventListener('click', chooseActiveSize);
 optionColors.addEventListener('click', chooseActiveColor);
 
+// add btn listener
 addToBagBtn.addEventListener('click', addToCart);
 
+// product from LS or empty arr
 let shoppingBag = getFromLS('shoppingBag') || [];
 
-// добавить в корзину
+// add product to bag
 function addToCart(e) {
   e.preventDefault();
 
@@ -69,16 +75,13 @@ function addToCart(e) {
     }
 
   }
-  saveToLS('shoppingBag', shoppingBag);
 
-  // checkCart();
+  saveToLS('shoppingBag', shoppingBag);
   checkCartCount();
 }
 
-function saveCartToLs() {
-  saveToLS('cart', cart)
-}
 
+// choose active color
 function chooseActiveColor(e) {
   let trg = e.target;
   if (trg.classList.contains('color-of-item')) {
@@ -90,6 +93,7 @@ function chooseActiveColor(e) {
   }
 }
 
+// choose active size
 function chooseActiveSize(e) {
   let trg = e.target;
   if (trg.classList.contains('size-of-item')) {
@@ -101,6 +105,7 @@ function chooseActiveSize(e) {
   }
 }
 
+// show full image by thumbs clicking
 function showFullImg(e) {
   let trg = e.target;
 
@@ -121,6 +126,7 @@ function showFullImg(e) {
 
 }
 
+// show product item
 function showItemOnPage(storage) {
   let output = '';
   for (let i = 0, len = storage.length; i < len; i++) {
@@ -133,6 +139,7 @@ function showItemOnPage(storage) {
   return output;
 }
 
+// item template
 function createItemTemplate(key) {
   return `
       <div class="options_img">

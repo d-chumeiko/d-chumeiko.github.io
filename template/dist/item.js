@@ -5,21 +5,27 @@ var itemOptions = document.querySelector('.options');
 
 itemOptions.innerHTML = showItemOnPage(lsCatalog);
 
+// thumbs listener 
 document.querySelector('.thumbs-img').addEventListener('click', showFullImg);
 
+// add to bag btn
 var addToBagBtn = document.getElementById('add-to-cart-btn');
 
+// sizes and colors from html
 var optionSizes = document.querySelector('.option_sizes');
 var optionColors = document.querySelector('.option_colors');
 
+// listeners for colors and sizes
 optionSizes.addEventListener('click', chooseActiveSize);
 optionColors.addEventListener('click', chooseActiveColor);
 
+// add btn listener
 addToBagBtn.addEventListener('click', addToCart);
 
+// product from LS or empty arr
 var shoppingBag = getFromLS('shoppingBag') || [];
 
-// добавить в корзину
+// add product to bag
 function addToCart(e) {
   e.preventDefault();
 
@@ -69,16 +75,12 @@ function addToCart(e) {
       });
     }
   }
-  saveToLS('shoppingBag', shoppingBag);
 
-  // checkCart();
+  saveToLS('shoppingBag', shoppingBag);
   checkCartCount();
 }
 
-function saveCartToLs() {
-  saveToLS('cart', cart);
-}
-
+// choose active color
 function chooseActiveColor(e) {
   var trg = e.target;
   if (trg.classList.contains('color-of-item')) {
@@ -90,6 +92,7 @@ function chooseActiveColor(e) {
   }
 }
 
+// choose active size
 function chooseActiveSize(e) {
   var trg = e.target;
   if (trg.classList.contains('size-of-item')) {
@@ -101,6 +104,7 @@ function chooseActiveSize(e) {
   }
 }
 
+// show full image by thumbs clicking
 function showFullImg(e) {
   var trg = e.target;
 
@@ -120,6 +124,7 @@ function showFullImg(e) {
   }
 }
 
+// show product item
 function showItemOnPage(storage) {
   var output = '';
   for (var i = 0, len = storage.length; i < len; i++) {
@@ -132,6 +137,7 @@ function showItemOnPage(storage) {
   return output;
 }
 
+// item template
 function createItemTemplate(key) {
   return '\n      <div class="options_img">\n        <p class="full-img">\n          <img class="full-img_item" src="' + key.preview[0] + '" alt="item img">\n        </p>\n        <div class="thumbs-img">\n          <p class="thumbs-img_item thumbs-img_item--active">\n            <img src="' + key.thumbnail[0] + '" alt="item thumbs">\n          </p>\n          <p class="thumbs-img_item">\n            <img src="' + key.thumbnail[1] + '" alt="item thumbs">\n          </p>\n          <p class="thumbs-img_item">\n            <img src="' + key.thumbnail[2] + '" alt="item thumbs">\n          </p>\n        </div>\n      </div>\n\n      <div class="options_data">\n        <h1 class="options_heading">' + key.title + '</h1>\n        <p class="options_descr">' + key.description + '</p>\n        <p class="options_price">\xA3' + (key.discountedPrice ? key.discountedPrice.toFixed(2) : key.price.toFixed(2)) + '</p>\n        <p class="option_sizes">\n          <span>Size:</span>\n          <span class="size-of-item option--active">' + key.sizes[0] + '</span>\n          ' + key.sizes.slice(1).map(function (size) {
     return '<span class="size-of-item">' + size + '</span>';

@@ -1,21 +1,24 @@
 'use strict';
 
+// elems from html
 var gamburger = document.querySelector('.navbar_link--toggle');
 var navbarButtonSearch = document.querySelector('.navbar_button-search');
 var productsList = document.querySelector('.products_list');
 var cartCount = document.querySelector('.count-products-in-bag');
 var textOfEmptyBag = document.querySelector('.bag-is-empty');
 
+// menu and search listeners
 gamburger.addEventListener('click', gamburgerToggle);
 navbarButtonSearch.addEventListener('click', searchMenuToggle);
 
+// save to LS and get from LS catalog items
 var lsCatalog = void 0;
-
 saveToLS('catalog', window.catalog);
 lsCatalog = JSON.parse(localStorage.getItem('catalog'));
 
 checkCartCount();
 
+// cart count and price
 function checkCartCount() {
 
   var cartCountLS = getFromLS('shoppingBag');
@@ -23,37 +26,45 @@ function checkCartCount() {
   var quantity = 0;
   var fullPrice = 0;
 
-  for (var i = 0; i < cartCountLS.length; i++) {
-    var key = cartCountLS[i];
-    quantity += key['count'];
-    fullPrice += key['price'];
+  if (cartCountLS) {
+    for (var i = 0; i < cartCountLS.length; i++) {
+      var key = cartCountLS[i];
+      quantity += key['count'];
+      fullPrice += key['price'];
+    }
   }
 
   cartCount.textContent = '\xA3' + fullPrice + ' (' + quantity + ')';
 }
 
+// add item to LS
 function addItemToLS(e) {
   var trg = e.target.parentNode;
   var trgId = trg.dataset.id;
   localStorage.setItem('itemId', JSON.stringify(trgId));
 }
 
+// get elem by key from LS
 function getFromLS(key) {
   return JSON.parse(localStorage.getItem(key));
 }
 
+// product template
 function createProductTemplate(key) {
   return '\n    <div class="products_item ' + (key.hasNew ? 'new-label' : '') + '" data-id="' + key.id + '" data-price="' + key.price.toFixed(2) + '">\n      <a href="./item.html">\n        <img src="' + key.thumbnail[0] + '" alt="product-image" class="products_item_img">\n        <h4 class="products_item_title">' + key.title + '</h4>\n        <p class="products_item_price">\xA3' + key.price.toFixed(2) + '</p>\n      </a>\n    </div>\n    ';
 }
 
+// save elem by key to LS
 function saveToLS(key, elem) {
   localStorage.setItem(key, JSON.stringify(elem));
 }
 
+// search menu toggle
 function searchMenuToggle() {
   document.querySelector('.navbar_text-to-search').classList.toggle('navbar_text-to-search--active');
 }
 
+// toggle menu for mobile
 function gamburgerToggle() {
   var navs = document.querySelectorAll('.navbar_menu, .navbar_search');
   var gamburgerImg = gamburger.querySelector('img');
@@ -66,8 +77,13 @@ function gamburgerToggle() {
   gamburgerImg.classList.contains('gamburger-img-show') ? gamburgerImg.src = './img/icons/close.png' : gamburgerImg.src = './img/icons/icon-menu.png';
 }
 
-// Array.from for IE
+function itemBtnClickHandler(className, functionName) {
+  document.querySelectorAll(className).forEach(function (btn) {
+    btn.addEventListener('click', functionName);
+  });
+}
 
+// Array.from for IE
 if (!Array.from) {
   Array.from = function () {
     var toStr = Object.prototype.toString;
@@ -90,47 +106,26 @@ if (!Array.from) {
       return Math.min(Math.max(len, 0), maxSafeInteger);
     };
 
-    // The length property of the from method is 1.
     return function from(arrayLike /*, mapFn, thisArg */) {
-      // 1. Let C be the this value.
       var C = this;
-
-      // 2. Let items be ToObject(arrayLike).
       var items = Object(arrayLike);
-
-      // 3. ReturnIfAbrupt(items).
       if (arrayLike == null) {
         throw new TypeError("Array.from requires an array-like object - not null or undefined");
       }
-
-      // 4. If mapfn is undefined, then let mapping be false.
       var mapFn = arguments.length > 1 ? arguments[1] : void undefined;
       var T;
       if (typeof mapFn !== 'undefined') {
-        // 5. else
-        // 5. a If IsCallable(mapfn) is false, throw a TypeError exception.
+
         if (!isCallable(mapFn)) {
           throw new TypeError('Array.from: when provided, the second argument must be a function');
         }
-
-        // 5. b. If thisArg was supplied, let T be thisArg; else let T be undefined.
         if (arguments.length > 2) {
           T = arguments[2];
         }
       }
-
-      // 10. Let lenValue be Get(items, "length").
-      // 11. Let len be ToLength(lenValue).
       var len = toLength(items.length);
-
-      // 13. If IsConstructor(C) is true, then
-      // 13. a. Let A be the result of calling the [[Construct]] internal method of C with an argument list containing the single item len.
-      // 14. a. Else, Let A be ArrayCreate(len).
       var A = isCallable(C) ? Object(new C(len)) : new Array(len);
-
-      // 16. Let k be 0.
       var k = 0;
-      // 17. Repeat, while k < len… (also steps a - h)
       var kValue;
       while (k < len) {
         kValue = items[k];
@@ -141,9 +136,7 @@ if (!Array.from) {
         }
         k += 1;
       }
-      // 18. Let putStatus be Put(A, "length", len, true).
       A.length = len;
-      // 20. Return A.
       return A;
     };
   }();
