@@ -202,8 +202,8 @@ window.catalog = [
     fashion: 'Casual style',
     colors: ['Raw umber', 'Dark blue'],
     sizes: ['UK 18', 'UK 19'],
-    thumbnail: ['/./img/oversized-cardigan.png', '/./img/oversized-cardigan2.png', './img/oversized-cardigan3.png'],
-    preview: ['/./img/oversized-cardigan.png', '/./img/oversized-cardigan2.png', './img/oversized-cardigan3.png']
+    thumbnail: ['./img/oversized-cardigan.png', './img/oversized-cardigan2.png', './img/oversized-cardigan3.png'],
+    preview: ['./img/oversized-cardigan.png', './img/oversized-cardigan2.png', './img/oversized-cardigan3.png']
   },
 
   {
@@ -235,7 +235,7 @@ window.catalog = [
     fashion: 'Casual style',
     colors: ['Blue'],
     sizes: ['UK 18'],
-    thumbnail: ['/./img/paul-joe-sister.png', '/./img/paul-joe-sister2.png', './img/paul-joe-sister3.png'],
-    preview: ['/./img/paul-joe-sister.png', '/./img/paul-joe-sister2.png', './img/paul-joe-sister3.png']
+    thumbnail: ['./img/paul-joe-sister.png', './img/paul-joe-sister2.png', './img/paul-joe-sister3.png'],
+    preview: ['./img/paul-joe-sister.png', './img/paul-joe-sister2.png', './img/paul-joe-sister3.png']
   }
 ];
