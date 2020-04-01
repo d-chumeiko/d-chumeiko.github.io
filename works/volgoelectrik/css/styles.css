@@ -2917,6 +2917,7 @@ p.advantages {
     transition: all .3s ease;
     background-color: rgba(255, 255, 255, 0.65);
     border-radius: 7px;
+    z-index: 999;
   }
 
   .messengers-phone .social_item {
@@ -3030,10 +3031,14 @@ p.advantages {
 
   .free-for-you .hero__body {
     display: flex;
+    position: relative;
+    z-index: 15;
   }
 
   .free-for-you {
     margin-top: 5px;
+    position: relative;
+    z-index: 15;
   }
 
   .hero__body {
@@ -3060,6 +3065,10 @@ p.advantages {
   .hero__btn--hidden .button {
     height: 30px;
     font-size: 16px;
+  }
+
+  div.messengers-phone.is-sticky {
+    right: -2% !important;
   }
 }
 
