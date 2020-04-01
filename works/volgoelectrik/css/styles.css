@@ -1155,14 +1155,16 @@ body input:required:valid, body textarea:required:valid {
 	Страница
 	------------------------------------- */
 /* ----- header ----- */
+
 .header {
-  position: relative;
+  position: absolute;
   padding-top: 5px;
   padding-bottom: 5px;
   z-index: 999;
-  background: #ccc;
+  background: transparent;
   -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
-          box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+  width: 100%;
 }
 
 .header__row {
@@ -1499,6 +1501,10 @@ display: block;
     top: -47px;
     display: block;
   }
+
+  .hero__body {
+    margin-top: 0;
+  }
 }
 
 @media screen and (max-width: 767px) {
@@ -1593,6 +1599,7 @@ display: block;
   padding: 35px 0 50px;
   margin-left: 28px;
   z-index: 10;
+  margin-top: 60px;
 }
 
 .hero__body h1 {
@@ -2330,6 +2337,7 @@ p.advantages {
 
 .free-for-you .hero__body {
   display: none;
+  margin-top: 0;
 }
 
 @media screen and (max-width: 1400px) {
@@ -2345,6 +2353,13 @@ p.advantages {
 
   .hero__btn {
     margin-top: 20px;
+  }
+
+  .header {
+    position: relative;
+    background: #ccc;
+    -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
   }
 }
 
@@ -2573,6 +2588,8 @@ p.advantages {
   .we-are-chosen_reasons p {
     font-size: 20px;
   }
+
+
 }
 
 @media screen and (max-width: 767px) {
