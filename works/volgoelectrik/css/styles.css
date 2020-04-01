@@ -1162,8 +1162,8 @@ body input:required:valid, body textarea:required:valid {
   padding-bottom: 5px;
   z-index: 999;
   background: transparent;
-  -webkit-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.45);
+  -webkit-box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.14);
+  box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.14);
   width: 100%;
 }
 
@@ -1594,7 +1594,7 @@ display: block;
 .hero__body {
   display: flex;
   position: relative;
-  left: 0;
+  left: -3%;
   flex-direction: column;
   padding: 35px 0 50px;
   margin-left: 28px;
