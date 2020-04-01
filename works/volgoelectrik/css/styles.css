@@ -3032,6 +3032,7 @@ p.advantages {
   .free-for-you .hero__body {
     display: flex;
     position: relative;
+    margin-left: 0;
     z-index: 15;
   }
 
@@ -3053,7 +3054,7 @@ p.advantages {
   .hero__body .h3 {
     margin-top: 5px;
     text-align: center;
-    font-size: 14px;
+    font-size: 15px;
   }
 
   .advantages.hidden-adv {
