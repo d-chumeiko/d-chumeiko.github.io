@@ -2328,6 +2328,10 @@ p.advantages {
   display: block;
 }
 
+.free-for-you .hero__body {
+  display: none;
+}
+
 @media screen and (max-width: 1400px) {
   .advantages {
     font-size: 26px;
@@ -2903,8 +2907,8 @@ p.advantages {
   }
   .messengers-phone {
     position: absolute;
-    right: 2%;
-    top: 60%;
+    right: -2%;
+    top: 30%;
         display: block;
     flex-direction: column;
     align-items: center;
@@ -3007,7 +3011,65 @@ p.advantages {
     text-align: center;
     padding-top: 5px;
   }
+
+  .social {
+    display: none;
+  }
+
+  .hero {
+    min-height: 288px;
+  }
+
+  .hero::before {
+    content: '';
+  }
+
+  .hero .hero__body {
+    display: none;
+  }
+
+  .free-for-you .hero__body {
+    display: flex;
+  }
+
+  .free-for-you {
+    margin-top: 5px;
+  }
+
+  .hero__body {
+    padding-bottom: 80px;
+  }
+
+  .hero__body .h1 {
+    text-transform: none;
+    letter-spacing: 0;
+  }
+  
+  .hero__body .h3 {
+    margin-top: 5px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .advantages.hidden-adv {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+
+  .hero__btn--hidden .button {
+    height: 30px;
+    font-size: 16px;
+  }
 }
+
+@media screen and (max-width: 374px) {
+  .hero {
+    background-size: contain;
+  }
+}
+
+
 
 .owl-theme .owl-nav [class*='owl-']:hover {
   background-color: transparent;
