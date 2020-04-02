@@ -79,10 +79,17 @@ function gamburgerToggle() {
   gamburgerImg.classList.contains('gamburger-img-show') ? gamburgerImg.src = './img/icons/close.png' : gamburgerImg.src = './img/icons/icon-menu.png';
 }
 
+// function itemBtnClickHandler(className, functionName) {
+//   document.querySelectorAll(className).forEach(function (btn) {
+//     btn.addEventListener('click', functionName);
+//   });
+// }
+
 function itemBtnClickHandler(className, functionName) {
-  document.querySelectorAll(className).forEach(function (btn) {
-    btn.addEventListener('click', functionName);
-  });
+  let elems = document.querySelectorAll(className);
+  for (let i = 0; i < elems.length; i++) {
+    elems[i].addEventListener('click', functionName); 
+  }
 }
 
 // Array.from for IE
@@ -143,3 +150,35 @@ if (!Array.from) {
     };
   }();
 }
+
+
+// closes IE
+
+  if (!Element.prototype.closest) {
+
+    // реализуем
+    Element.prototype.closest = function(css) {
+      var node = this;
+
+      while (node) {
+        if (node.matches(css)) return node;
+        else node = node.parentElement;
+      }
+      return null;
+    };
+  }
+
+
+
+// matches ie
+
+  // проверяем поддержку
+  if (!Element.prototype.matches) {
+
+    // определяем свойство
+    Element.prototype.matches = Element.prototype.matchesSelector ||
+      Element.prototype.webkitMatchesSelector ||
+      Element.prototype.mozMatchesSelector ||
+      Element.prototype.msMatchesSelector;
+
+  }

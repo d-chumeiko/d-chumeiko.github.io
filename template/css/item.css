@@ -21,7 +21,7 @@
 
 .options_img {
   max-width: 590px;
-  width: 100%;
+  width: auto;
   display: flex;
   flex-direction: column;
   align-self: start;
@@ -289,7 +289,7 @@
     }
   
     .thumbs-img img {
-      width: 100%;
+      width: 65%;
     }
   
     .thumbs-img_item--active::after {

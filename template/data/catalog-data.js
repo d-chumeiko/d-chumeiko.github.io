@@ -122,7 +122,7 @@ window.catalog = [
 
   // 10.08
   {
-    id: '07cf6ce2-6eee-4e78-a441-f257fdea7ed6',
+    id: '07cf6ce2-6eee-4e78-a31441-f257fdea7ed6',
     dateAdded: '2017-06-12T15:35:13.000Z',
     title: 'Neck Knitted Jumper',
     description: 'Sunt, beatae doloribus deleniti quibusdam vero corrupti laboriosam cumque quia amet tempore obcaecati quam possimus aspernatur a modi',
@@ -174,7 +174,7 @@ window.catalog = [
   // 09.06
 
   {
-    id: 'ccc8a5d5-7cdf-4706-95f5-abc64761400d',
+    id: 'ccc8a5d5-7cdf-fef4706-95f5-abc64761400d',
     dateAdded: '2017-06-09T17:32:17.000Z',
     title: 'Colour Block',
     description: 'Dolor quis dicta dolorem repellat!',
@@ -237,5 +237,21 @@ window.catalog = [
     sizes: ['UK 18'],
     thumbnail: ['./img/paul-joe-sister.png', './img/paul-joe-sister2.png', './img/paul-joe-sister3.png'],
     preview: ['./img/paul-joe-sister.png', './img/paul-joe-sister2.png', './img/paul-joe-sister3.png']
-  }
+  },
+
+  {
+    id: 'bec71daa-d133-473d-bbb0-1ee0a427a17d',
+    dateAdded: '2017-03-09T17:51:45.000Z',
+    title: 'Only Busted Knee Jean',
+    description: '',
+    discountedPrice: 140.5,
+    price: 140.5,
+    hasNew: false,
+    category: 'women',
+    fashion: 'Casual style',
+    colors: ['Dark Blue'],
+    sizes: ['UK 19'],
+    thumbnail: ['./img/only-busted-knee.png', './img/only-busted-knee2.png', './img/only-busted-knee3.png'],
+    preview: ['./img/only-busted-knee.png', './img/only-busted-knee2.png', './img/only-busted-knee3.png']
+},
 ];

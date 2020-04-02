@@ -1143,4 +1143,22 @@ footer {
   }
 }
 
+@media only screen and (max-width: 625px) {
+  .banners_left-banner {
+    background-size: contain;
+  }
+
+  .catalog_banners, .item_banners {
+    max-height: 215px;
+  }
+
+}
+
+@media only screen and (max-width: 375px) {
+  .wrapper, section, footer, header, body {
+    min-width: 375px;
+    overflow-x: auto;
+  }
+}
+
 /* ------------ Media  End ------------ */

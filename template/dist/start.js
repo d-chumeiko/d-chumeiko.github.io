@@ -11,8 +11,8 @@ var leftBestOfferProducts = createLeftProductsInBestOffer(lsCatalog);
 var rightBestOfferProducts = createRightProductsInBestOffer(lsCatalog);
 
 // best offer arrows arrays
-var topArrows = Array.from(document.querySelectorAll('.selection-arrows_top'));
-var bottomArrows = Array.from(document.querySelectorAll('.selection-arrows_bottom'));
+var topArrows = [].slice.call(document.querySelectorAll('.selection-arrows_top'));
+var bottomArrows = [].slice.call(document.querySelectorAll('.selection-arrows_bottom'));
 
 // best offer arrows
 var leftTopArrow = topArrows[0];
