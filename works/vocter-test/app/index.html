@@ -1,30 +1,139 @@
 <!DOCTYPE html>
 <html lang="ru">
 
-  <head>
+<head>
 
-  	<meta charset="utf-8">
-  	<title></title>
-  	<meta name="description" content="">
+	<meta charset="utf-8">
+	<title></title>
+	<meta name="description" content="">
 
-  	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-  	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  	<link rel="icon" href="img/favicon/favicon.ico">
-		<link rel="stylesheet" href="css/main.min.css">
+	<link rel="icon" href="img/favicon/favicon.ico">
+	<link rel="stylesheet" href="./css/normalize.css">
+	<link rel="stylesheet" href="./css/main.min.css">
 
-  </head>
+</head>
 
-  <body>
+<body>
 
-    <header>
-    </header>
+	<header class="header">
+		<a href="#" class="header__logo">
+			<img src="./img/icons/header-logo.svg" alt="header-logo" class="header__logo-img">
+			<span class="header__logo-title">Kaboodle</span>
+		</a>
 
-		<main></main>
+		<p class="header__site-concept">discover and share movies and TV shows with your friends</p>
 
-    <footer></footer>
+		<nav class="header__links">
+			<a href="#" class="header__link-item header__sign-up">
+				<img src="./img/icons/header-sign-up.svg" alt="sign up">
+				<span>Sign up</span>
+			</a>
 
-  	<script src="js/scripts.min.js"></script>
-  </body>
+			<a href="#" class="header__link-item header__log-in">
+				<img src="./img/icons/header-sign-in.png" alt="log in">
+				<span>Log in</span>
+			</a>
+
+			<a href="#" class="header__link-item header__about">
+				<img src="./img/icons/header-about.svg" alt="about">
+				<span>About</span>
+			</a>
+		</nav>
+	</header>
+
+	<main class="main">
+
+		<section class="site-banner">
+			<h1 class="site-banner__name">Kaboodle</h1>
+		</section>
+
+		<section class="films-catalog">
+
+			<div class="control-panel">
+
+				<h2 class="control-panel__heading">Coming soon</h2>
+
+				<div class="control-panel__menu">
+
+					<div class="control-panel__filtration-buttons ">
+						<ul class="filtration-buttons__list filtration-buttons__list--card">
+							<li data-type="All">All</li>
+							<li class="filtration-buttons__list--active" data-type="Movie">Movies</li>
+							<li data-type="TV-Show">TV Shows</li>
+						</ul>
+					</div>
+
+					<div class="control-panel__view-buttons">
+
+						<p class="view-buttons__card view-button--active">
+							<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+						</p>
+
+						<p class="view-buttons__list"></p>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="catalog-cards catalog-items-container"></div>
+
+		</section>
+
+		<section class="films-catalog">
+
+			<div class="control-panel">
+
+				<h2 class="control-panel__heading">Most popular</h2>
+
+				<div class="control-panel__menu">
+
+					<div class="control-panel__filtration-buttons ">
+						<ul class="filtration-buttons__list filtration-buttons__list--list">
+							<li data-type="All">All</li>
+							<li class="filtration-buttons__list--active" data-type="Movie">Movies</li>
+							<li data-type="TV-Show">TV Shows</li>
+						</ul>
+					</div>
+
+					<div class="control-panel__view-buttons">
+
+						<p class="view-buttons__card">
+							<span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+						</p>
+
+						<p class="view-buttons__list view-button--active"></p>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="catalog-list catalog-items-container"></div>
+
+		</section>
+
+
+	</main>
+
+	<footer class="footer">
+		<div class="footer-content">
+			<h2 class="footer__heading">Kaboodle</h2>
+			<p class="footer__links">
+				<a href="#">FAQ |</a>
+				<a href="#">Feedback |</a>
+				<a href="#">Contact |</a>
+				<a href="#">T&Cs |</a>
+				<a href="#">Privacy Policy</a>
+			</p>
+			<p class="footer__copyright">Copyright 2016 - All Rights Reservered</p>
+		</div>
+	</footer>
+
+	<script src="./js/scripts.min.js"></script>
+</body>
 
 </html>
