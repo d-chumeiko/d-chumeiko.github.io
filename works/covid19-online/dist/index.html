@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  <meta charset="utf-8">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-BJ5XXHK8EW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-BJ5XXHK8EW');
+</script>
+
+  <title>Онлайн статистика COVID-19</title>
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <link rel="icon" href="img/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="120x120" href="img/favicon/favicon.png">
+  <!-- Template Basic Images End -->
+  
+  <meta name="description" content="Данные о заболевших COVID-19 в реальном времени. Статистика, информация, карта распространения, меры профилактики и защиты, новости...">
+  <meta name="keywords" content="коронавриус, covid-19, ncov2019,инфекция, трекер, как не заболеть, новости, статистика, данные, количество заразившихся">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="COVID-19 Онлайн">
+  <meta property="og:locale" content="ru_RU" />
+  <meta property="og:url" content="https://covid-19.kl.com.ua/">
+  <meta property="og:title" content="Онлайн статистика заболевших коронавирусом">
+  <meta property="og:description" content="Данные о заболевших COVID-19 в реальном времени. Статистика, информация, карта распространения, меры профилактики и защиты, новости...">
+  <meta property="og:image" content="https://covid-19.kl.com.ua/img/covid19-logo.png">
+
+
+  <!-- Custom Browsers Color Start -->
+  <meta name="theme-color" content="#000">
+  <!-- Custom Browsers Color End -->
+
+  <link rel="stylesheet" href="css/libs.min.css">
+  <link rel="stylesheet" href="css/main.min.css">
+
+<meta name="google-site-verification" content="tjMsaFJhEIYNZkd6qVxskX2PgYvy22FMc8Bj-O2LKBQ" />
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand header-navbar__logo" href="index.html">
+          <img class="footer-logo__img" src="./img/covid19-logo.png" alt="logo"/>
+          <h1 class="header-navbar__heading">COVID-19 Онлайн</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Данные <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="map.html">Карта</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about-virus.html">О вирусе</a>
+            </li>
+            <li class="nav-item">
+              <a tabindex="-1" class="nav-link" href="news.html">Новости</a>
+            </li>
+          </ul>
+
+          <a href="https://t.me/just_the_facts" class="btn btn-info my-2 my-sm-0">
+            <i class="fab fa-telegram"></i>
+            Телеграм-канал
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <div class="row">
+        <!-- ASIDE -->
+        <aside class="col-md-12 col-lg-3">
+          <div class="aside-statistic my-auto">
+            <h2 class="aside-statistic__heading">Общая статистика</h2>
+            <div class="aside-statistic__data aside-statistic__values">
+              <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="aside-statistic my-auto aside-statistic-goto">
+            <h2 class="aside-statistic__heading">Быстрый переход</h2>
+            <div class="aside-statistic__data">
+              <ul class="nav flex-column nav-pills nav-fill">
+                <li class="nav-item">
+                  <a class="nav-link btn btn-secondary" href="#world-wrap">Все страны</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn btn-secondary" href="#europe-wrap">Европа</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn btn-secondary" href="#asia-wrap">Азия</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn btn-secondary" href="#north-america-wrap">Северная Америка</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn btn-secondary" href="#south-america-wrap">Южная Америка</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn btn-secondary" href="#africa-wrap">Африка</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link btn btn-secondary" href="#australia-oceania-wrap">Австралия</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </aside>
+
+        <section class="tables-container col-md-12 col-lg-9">
+
+          <div class="statistic-table" id="world-wrap">
+            <h2 class="statistic-table__heading"><i class="fal fa-globe"></i>
+              Все страны | Статистика COVID-19
+            </h2>
+            <div class="percentage-ratio col-md-5"></div>
+
+            <table id="world" class="display stripe" style="width:100%">
+              <thead>
+                <tr>
+                  <th class="load-spinner">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+
+          <div class="statistic-table" id="europe-wrap">
+            <h2 class="statistic-table__heading"><i class="fal fa-globe-europe"></i>
+              Европа | Статистика COVID-19
+            </h2>
+            <div class="percentage-ratio col-md-5"></div>
+
+            <table id="europe" class="display stripe" style="width:100%">
+              <thead>
+                <tr>
+                  <th class="load-spinner">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+
+          <div class="statistic-table" id="asia-wrap">
+            <h2 class="statistic-table__heading"><i class="fal fa-globe-asia"></i>
+              Азия | Статистика COVID-19
+            </h2>
+            <div class="percentage-ratio col-md-5"></div>
+
+            <table id="asia" class="display stripe" style="width:100%">
+              <thead>
+                <tr>
+                  <th class="load-spinner">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+
+          <div class="statistic-table" id="north-america-wrap">
+            <h2 class="statistic-table__heading"><i class="fal fa-globe-americas"></i>
+              Северная Америка | Статистика COVID-19
+            </h2>
+            <div class="percentage-ratio col-md-5"></div>
+
+            <table id="north-america" class="display stripe" style="width:100%">
+              <thead>
+                <tr>
+                  <th class="load-spinner">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+
+          <div class="statistic-table" id="south-america-wrap">
+            <h2 class="statistic-table__heading"><i class="fal fa-globe-americas"></i>
+              Южная Америка | Статистика COVID-19
+            </h2>
+            <div class="percentage-ratio col-md-5"></div>
+
+            <table id="south-america" class="display stripe" style="width:100%">
+              <thead>
+                <tr>
+                  <th class="load-spinner">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+
+          <div class="statistic-table" id="africa-wrap">
+            <h2 class="statistic-table__heading">
+              <i class="fal fa-globe-africa"></i>
+              Африка | Статистика COVID-19
+            </h2>
+            <div class="percentage-ratio col-md-5"></div>
+
+            <table id="africa" class="display stripe" style="width:100%">
+              <thead>
+                <tr>
+                  <th class="load-spinner">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+
+          <div class="statistic-table" id="australia-oceania-wrap">
+            <h2 class="statistic-table__heading"><i class="fal fa-globe-asia"></i>
+              Австралия/Океания | Статистика COVID-19
+            </h2>
+            <div class="percentage-ratio col-md-5"></div>
+
+            <table id="australia-oceania" class="display stripe" style="width:100%">
+              <thead>
+                <tr>
+                  <th class="load-spinner">
+                    <div class="spinner-border" role="status">
+                      <span class="sr-only">Loading...</span>
+                    </div>
+                  </th>
+                </tr>
+              </thead>
+
+            </table>
+          </div>
+
+        </section>
+
+        <section class="about-data">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <h2 class="about-data__heading"><i class="fal fa-table"></i>О данных в таблицах</h2>
+
+                <div class="about-data__info col-sm-10 justify-content-center">
+                  <div class="about-data__wrap">
+                    <h5>Данные быстро меняются</h5>
+                    <p>В статистике может не быть информации о недавно зарегистрированных случаях.
+                    </p>
+                  </div>
+
+                  <div class="about-data__wrap">
+                    <h5>Учтены только те, кто сдал тест
+                    </h5>
+                    <p>При подсчете случаев заболевания учитываются только пациенты, прошедшие диагностику с
+                      положительным результатом. Правила диагностики и возможность ее проведения зависят от страны.
+                      Информация по некоторым регионам может отсутствовать, поскольку данные ещё не были опубликованы
+                      или давно не обновлялись.</p>
+                  </div>
+
+                  <div class="about-data__wrap">
+                    <h5>Статистика предоставлена сайтом 'Worldometers'</h5>
+                    <p>Данные о распространении коронавирусной инфекции COVID-19 предоставлены ресурсом 'Worldometers'.
+                      Информация о новых случаях заболевания постоянно обновляется и поступает из разных ресурсов по
+                      всему миру. </p>
+                  </div>
+
+                  <div class="about-data__wrap">
+                    <h5>Почему данные из разных источников отличаются
+                    </h5>
+                    <p>Есть множество интернет-ресурсов, которые отслеживают и обрабатывают статистику распространения
+                      коронавирусной инфекции. При этом алгоритм сбора данных и интервал их обновления у каждого сайта
+                      разный.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="contact-us" id="contact-us">
+          <div class="container">
+            <div class="row">
+              <h2 class="contact-us__heading"><i class="fal fa-envelope-open-text"></i>Связаться с нами</h2>
+
+              <div class="contact-us__form col-md-6 col-sm-8">
+                <form class="needs-validation" id="form" name="form" novalidate>
+
+                  <div class="form-row">
+
+                    <div class="col-md-6 col-sm-6">
+                      <input type="text" class="form-control" id="validationTooltip01" name='user_name' placeholder="Ваше имя..."
+                        required>
+                      <div class="invalid-tooltip">
+                        Введите имя!
+                      </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+
+                      <div class="input-group">
+                        <input type="email" class="form-control" id="validationTooltipUsername"
+                          aria-describedby="validationTooltipUsernamePrepend" name='user_email' placeholder="Ваша почта..." required>
+                        <div class="invalid-tooltip">
+                          Введите почту правильно!
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="form-row">
+                    <div class="col-md-12">
+                      <textarea class="form-control" id="validationTooltip03" name='user_msg' placeholder="Введите сообщение..."
+                        required></textarea>
+                      <div class="invalid-tooltip">
+                        Введите сообщение!
+                      </div>
+                    </div>
+                  </div>
+                  <button class="btn btn-success" type="submit">Отправить</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="footer-content col-sm-12">
+            <div class="footer-content__data col-sm-12">
+              <p class="footer-logo col-md-2 .d-sm-none .d-md-block
+              ">
+                <img class="footer-logo__img" src="./img/covid19-logo.png" alt="logo">
+              </p>
+              <p class="footer-links col-sm-4 col-md-3 ">
+                <a href="index.html">Данные</a>
+                <a href="map.html">Карты</a>
+              </p>
+
+              <p class="footer-links col-sm-4 col-md-3 ">
+                <a href="about-virus.html">О вирусе</a>
+                <a href="news.html">Новости</a>
+              </p>
+
+              <div class="footer-links col-sm-4 col-md-3 ">
+                <a href="#contact-us">Связаться с нами</a>
+                <div class="footer-social-links">
+                  <a href="https://t.me/just_the_facts"><i class="fab fa-telegram"></i></a>
+                  <a href="https://www.instagram.com/just__the_facts/"><i class="fab fa-instagram"></i></a>
+                </div>
+
+              </div>
+              <div class="footer-content__copyright col-12">
+                <span><i class="fal fa-copyright"></i> Copyright. All rights reserved
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="overlay js-overlay-thank-you">
+    <div class="popup js-thank-you">
+      <h3>Сообщение отправлено</h3>
+      <div class="close-popup js-close-thank-you"></div>
+    </div>
+  </div>
+
+  <a id="button-to-top"></a>
+
+  <script src="js/libs.min.js"></script>
+  <script src="js/scripts.min.js"></script>
+</body>
+
+</html>

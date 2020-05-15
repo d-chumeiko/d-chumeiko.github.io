@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  <meta charset="utf-8">
+  <!-- <base href=""> -->
+
+  <title></title>
+  <meta name="description" content="">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <!-- Template Basic Images Start -->
+  <meta property="og:image" content="path/to/image.jpg">
+  <link rel="icon" href="img/favicon/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon-180x180.png">
+  <!-- Template Basic Images End -->
+
+  <!-- Custom Browsers Color Start -->
+  <meta name="theme-color" content="#000">
+  <!-- Custom Browsers Color End -->
+
+  <link rel="stylesheet" href="css/libs.min.css">
+  <link rel="stylesheet" href="css/main.min.css">
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="container-fluid">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand header-navbar__logo" href="index.html">
+          <img src="./img/covid19-logo.png" class="d-inline-block align-top" alt="">
+          <h1 class="header-navbar__heading">COVID-19 Онлайн</h1>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+          aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+              <a class="nav-link" href="index.html">Данные <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="map.html">Карта</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about-virus.html">О вирусе</a>
+            </li>
+            <li class="nav-item">
+              <a tabindex="-1" class="nav-link" href="news.html">Новости</a>
+            </li>
+          </ul>
+
+          <a href="https://t.me/just_the_facts" class="btn btn-info my-2 my-sm-0">
+            <i class="fab fa-telegram"></i>
+            Телеграм-канал
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+
+  <main class="main">
+    <div class="container">
+      <div class="row">
+        <section class="col-12">
+          <div class="covid-info">
+
+            <div class="covid-info__wrapper d-none d-sm-block">
+              <h1 class="covid-info__heading"><i class="fal fa-newspaper"></i>Новости</h1>
+            </div>
+
+
+            <div class="covid-info__wrapper">
+              <h2 class="covid-info__heading"><i class="fal fa-info-circle"></i>О данном разделе
+              </h2>
+              <div class="covid-info__info col-12 col-lg-10">
+                <p>Страница находится на стадии разработки. В скором времени на ней начнут появлятся интересные факты, новости, а также полезная информация. Следите за обновлениями</p>
+                <p><b>В данный момент интересующую информацию можете найти в нашем Телеграм канале или на странице в Инстаграм. Ссылке ниже!</b></p>
+              </div>
+            </div>
+
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+  
+
+  <footer class="footer">
+    <div class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="footer-content col-sm-12">
+            <div class="footer-content__data col-sm-12">
+              <p class="footer-logo col-md-2 .d-sm-none .d-md-block
+            ">
+                <img class="footer-logo__img" src="./img/covid19-logo.png" alt="logo">
+              </p>
+              <p class="footer-links col-sm-4 col-md-3 ">
+                <a href="index.html">Данные</a>
+                <a href="map.html">Карты</a>
+              </p>
+
+              <p class="footer-links col-sm-4 col-md-3 ">
+                <a href="about-virus.html">О вирусе</a>
+                <a href="news.html">Новости</a>
+              </p>
+
+              <div class="footer-links col-sm-4 col-md-3 ">
+                <a href="index.html#contact-us">Связаться с нами</a>
+                <div class="footer-social-links">
+                  <a href="https://t.me/just_the_facts"><i class="fab fa-telegram"></i></a>
+                  <a href="https://www.instagram.com/just__the_facts/"><i class="fab fa-instagram"></i></a>
+                </div>
+
+              </div>
+              <div class="col-12 footer-content__copyright">
+                <span><i class="fal fa-copyright"></i> Copyright. All rights reserved
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <a id="button-to-top"></a>
+  <script src="js/libs.min.js"></script>
+  <script>
+    const btn = $('#button-to-top');
+
+    $(window).scroll(function () {
+      if ($(window).scrollTop() > 300) {
+        btn.addClass('show');
+      } else {
+        btn.removeClass('show');
+      }
+    });
+
+    btn.on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: 0
+      }, '300');
+    });
+  </script>
+</body>
+
+</html>
