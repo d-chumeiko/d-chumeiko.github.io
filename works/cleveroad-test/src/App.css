@@ -1,0 +1,24 @@
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.app-wrapper {
+  display: grid;
+  width: 1200px;
+  grid-template-areas:
+    "header"
+    "content";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 12;
+  grid-gap: 3px;
+  margin: 0 auto;
+}
+
+.app-wrapper_content {
+  grid-area: content;
+  padding: 30px 20px;
+  background-color: rgb(255, 255, 255);
+  overflow: hidden;
+}

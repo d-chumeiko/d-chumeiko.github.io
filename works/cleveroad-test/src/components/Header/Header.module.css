@@ -1,0 +1,32 @@
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f6f6f6;
+}
+
+
+.headerBtn {
+  margin-right: 20px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 7px;
+  background-color: #949494;
+  color: #ffffff;
+}
+
+.headerLoginBtn {
+  background-color: #009e54;
+}
+
+.headerLogoutBtn {
+  background-color: #9e0000;
+  margin-right: 0;
+}
+
+.helloUser {
+  margin-right: 20px;
+  font-size: 18px;
+}

@@ -1,0 +1,29 @@
+.header {
+  grid-area: header;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f6f6f6;
+}
+
+.headerBtn {
+  margin-right: 20px;
+  padding: 5px 10px;
+  border-radius: 7px;
+  background-color: #949494;
+  color: #ffffff;
+}
+
+.formWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  margin: 0 auto;
+  padding: 30px 150px;
+  border-radius: 8px;
+  background: rgb(248, 248, 248);
+}

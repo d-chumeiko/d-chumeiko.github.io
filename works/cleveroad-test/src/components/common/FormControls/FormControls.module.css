@@ -1,0 +1,30 @@
+.formControl {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.formControl input, .formControl textarea {
+  width: 90%;
+  padding: 8px 15px;
+  border: 1px solid gainsboro;
+  border-radius: 4px;
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: rgb(102, 102, 102);
+}
+
+.formControl.error input, .formControl.error textarea {
+  border: 1px solid red;
+}
+
+.formControl.error span {
+  color: red;
+}
+
+.fieldLabel {
+  margin: 0 0 5px 16px;
+  font-size: 18px;
+  color: rgb(102, 102, 102);
+}
